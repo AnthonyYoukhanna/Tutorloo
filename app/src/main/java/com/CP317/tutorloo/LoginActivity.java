@@ -11,11 +11,13 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import static java.security.AccessController.getContext;
+
 public class LoginActivity extends AppCompatActivity {
 
     private Button mLogin, mRegister;
     private EditText mEmail, mPassword;
-    DatabaseHelper myDb;
+    DatabaseHelper myDb = new DatabaseHelper(getContext());
 
     // private authentification through sqlite
     // private authentication listener?
