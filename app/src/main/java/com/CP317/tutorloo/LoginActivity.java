@@ -15,13 +15,13 @@ public class LoginActivity extends AppCompatActivity {
 
     private Button mLogin, mRegister;
     private EditText mEmail, mPassword;
+    DatabaseHelper myDb;
 
     // private authentification through sqlite
     // private authentication listener?
 
     @Override
-
-    protected  void oNCreate(Bundle savedInstanceState){
+    protected  void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
@@ -49,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
 
             mRegister.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class);
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(intent);
                 finish();
                 return;
