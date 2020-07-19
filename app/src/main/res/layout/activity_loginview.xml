@@ -89,11 +89,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.551" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/HelpButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/link_to_help_view"
+        android:background="?android:selectableItemBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/PurpleHeader"
         app:layout_constraintHorizontal_bias="0.048"
