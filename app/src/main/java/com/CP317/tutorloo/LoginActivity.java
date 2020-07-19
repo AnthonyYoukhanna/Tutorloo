@@ -21,9 +21,9 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected  void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_LoginView);
+        setContentView(R.layout.activity_loginview);
 
-        mLogin = (Button) findViewById(R.id.Log_in);
+        mLogin = (Button) findViewById(R.id.change_profile);
         mRegister = (Button) findViewById(R.id.RegisterButton);
 
         mEmail = (EditText) findViewById(R.id.Email_input);
