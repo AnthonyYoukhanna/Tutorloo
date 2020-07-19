@@ -32,7 +32,7 @@
         app:srcCompat="@drawable/goldenhawks" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tutorloo"
         android:layout_width="251dp"
         android:layout_height="46dp"
         android:text="Tutorloo"
@@ -46,7 +46,7 @@
         app:layout_constraintVertical_bias="0.106" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/leaf_logo"
         android:layout_width="79dp"
         android:layout_height="71dp"
         android:rotation="30"
@@ -58,7 +58,7 @@
         app:srcCompat="@drawable/leaf" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/profile_icon"
         android:layout_width="48dp"
         android:layout_height="53dp"
         android:background="@drawable/circle"
@@ -97,7 +97,7 @@
         app:srcCompat="@drawable/screen_shot_2020_07_18_at_9_12_27_pm" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/user_type"
         android:layout_width="55dp"
         android:layout_height="29dp"
         android:text="Tutor"
@@ -111,7 +111,7 @@
         app:layout_constraintVertical_bias="0.042" />
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/helpButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
