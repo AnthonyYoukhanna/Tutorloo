@@ -7,6 +7,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/profile_icon2"
+        android:layout_width="55dp"
+        android:layout_height="59dp"
+        android:background="@drawable/circle"
+
+        android:gravity="center"
+        android:text="@string/ab"
+        android:textColor="#F2A900"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.955"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.101" />
+
     <ImageView
         android:id="@+id/leaf_logo"
         android:layout_width="79dp"
@@ -43,24 +60,22 @@
         android:contentDescription="@string/app_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/Log_in"
-        android:layout_width="109dp"
-        android:layout_height="44dp"
+        android:id="@+id/change_profile"
+        android:layout_width="122dp"
+        android:layout_height="46dp"
         android:background="#330072"
-        android:text="@string/log_in"
-        android:hint="login"
-        android:textColor="#FFFFFF"
+        android:text="@string/change_profile"
+        android:textColor="@color/yellow"
         app:layout_constraintBottom_toBottomOf="@+id/Background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/PurpleHeader"
-        app:layout_constraintVertical_bias="0.698" />
+        app:layout_constraintVertical_bias="0.775" />
 
     <TextView
         android:id="@+id/PurpleHeader"
@@ -89,86 +104,30 @@
         app:layout_constraintVertical_bias="0.035"
         app:srcCompat="@android:drawable/ic_menu_info_details" />
 
-    <Button
-        android:id="@+id/RegisterButton"
-        android:layout_width="66dp"
-        android:layout_height="29dp"
-        android:background="#FFFFFF"
-        android:text="@string/register"
-        android:textColor="@color/purple"
-        android:textSize="12sp"
-        android:hint="register"
-        android:textStyle="bold"
+    <TextView
+        android:id="@+id/user_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/student"
+        android:textColor="@color/white"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/PurpleHeader"
-        app:layout_constraintHorizontal_bias="0.942"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.951"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.035" />
+        app:layout_constraintVertical_bias="0.034" />
 
     <ImageView
-        android:id="@+id/LoginLogo"
-        android:layout_width="180dp"
-        android:layout_height="169dp"
-        android:contentDescription="@string/wlu_logo"
-        app:layout_constraintBottom_toBottomOf="@+id/Background"
+        android:id="@+id/GD_logo"
+        android:layout_width="233dp"
+        android:layout_height="82dp"
+        android:contentDescription="@string/goldenhawkslogo"
+        app:layout_constraintBottom_toTopOf="@+id/change_profile"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/PurpleHeader"
-        app:layout_constraintVertical_bias="0.333"
-        app:srcCompat="@drawable/laurier_logo" />
-
-    <EditText
-        android:id="@+id/Email_input"
-        android:layout_width="234dp"
-        android:layout_height="43dp"
-        android:ems="10"
-        android:importantForAutofill="no"
-        android:inputType="textEmailAddress"
-        android:text="@string/email"
-        android:hint="email"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LoginLogo"
-        app:layout_constraintVertical_bias="0.021" />
-
-    <EditText
-        android:id="@+id/password_input"
-        android:layout_width="234dp"
-        android:layout_height="43dp"
-        android:contentDescription="@string/login_password"
-        android:hint="password"
-        android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/PurpleHeader"
-        app:layout_constraintVertical_bias="0.596"
-        tools:text="Password"
-        android:importantForAutofill="no" />
-
-    <TextView
-        android:id="@+id/forgotpassword"
-        android:layout_width="112dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="50dp"
-        android:clickable="true"
-        android:text="@string/forgot_password"
-        android:textStyle="bold|italic"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.867"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.689"
-        android:focusable="true" />
+        app:layout_constraintTop_toTopOf="@+id/Background"
+        app:layout_constraintVertical_bias="0.944"
+        app:srcCompat="@drawable/goldenhawks" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

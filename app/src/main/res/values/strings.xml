@@ -24,5 +24,12 @@
     <string name="leaf_logo">leaf_logo</string>
     <string name="ab">AB</string>
     <string name="tutor">Tutor</string>
+    <string name="student">Student</string>
+    <string name="tutor">Tutor</string>
+    <string name="please_select">Please Select:</string>
+    <string name="gh_logo">GH_logo</string>
+    <string name="change_profile">Change Profile</string>
+    <string name="student">Student</string>
+    <string name="goldenhawkslogo">goldenhawkslogo</string>
 
 </resources>
