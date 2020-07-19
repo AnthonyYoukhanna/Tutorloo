@@ -21,6 +21,10 @@ public class LoginActivity extends AppCompatActivity {
 
     // private authentification through sqlite
     // private authentication listener?
+    // zack test
+
+
+
 
     @Override
     protected  void onCreate(Bundle savedInstanceState){
