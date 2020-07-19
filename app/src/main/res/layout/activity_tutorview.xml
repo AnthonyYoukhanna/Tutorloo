@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/change_profile"
         android:layout_width="135dp"
         android:layout_height="46dp"
         android:background="#481F91"

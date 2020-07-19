@@ -20,6 +20,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".RegisterActivity" />
+        <activity android:name=".TutorActivity" />
+        <activity android:name=".TutorInfoActivity" />
+
 
 
     </application

@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private Button mLogin, mRegister;
+    private Button mLogin, mRegister, mTutorLogin;
     private EditText mEmail, mPassword;
     //DatabaseHelper myDb = new DatabaseHelper(getApplicationContext());
 
@@ -23,8 +23,9 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loginview);
 
-        mLogin = (Button) findViewById(R.id.change_profile);
+        mLogin = (Button) findViewById(R.id.login);
         mRegister = (Button) findViewById(R.id.RegisterButton);
+        mTutorLogin = (Button) findViewById(R.id.tutor_login);
 
         mEmail = (EditText) findViewById(R.id.Email_input);
         mPassword = (EditText) findViewById(R.id.password_input);
@@ -41,12 +42,20 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-            mRegister.setOnClickListener(new View.OnClickListener() {
+        mRegister.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
-                startActivity(intent);
-                finish();
-                return;
+            Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+            startActivity(intent);
+            finish();
+            return;
+            }
+        });
+        mTutorLogin.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+            Intent intent = new Intent(LoginActivity.this, TutorActivity.class);
+            startActivity(intent);
+            finish();
+            return;
             }
         });
     }
