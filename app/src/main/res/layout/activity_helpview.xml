@@ -11,7 +11,6 @@
         android:layout_width="48dp"
         android:layout_height="53dp"
         android:background="@drawable/circle"
-
         android:gravity="center"
         android:text="FILL IN"
         android:textColor="#F2A900"

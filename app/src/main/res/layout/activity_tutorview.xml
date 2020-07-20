@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/change_profile"
         android:layout_width="135dp"
         android:layout_height="46dp"
         android:background="#481F91"
@@ -110,10 +110,11 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.042" />
 
-    <ImageView
-        android:id="@+id/helpButton"
+    <ImageButton
+        android:id="@+id/HelpButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="?android:selectableItemBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/textView3"
         app:layout_constraintHorizontal_bias="0.078"

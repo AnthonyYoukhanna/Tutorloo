@@ -7,19 +7,20 @@ import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class RegisterActivity extends AppCompatActivity {
-    private ImageButton mInfo;
+public class TutorInfoActivity extends AppCompatActivity {
+   private ImageButton mInfo;
 
 
     @Override
     protected  void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registerview);
+        setContentView(R.layout.activity_tutorinfoview);
+
         mInfo = (ImageButton) findViewById(R.id.HelpButton);
 
         mInfo.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent intent = new Intent(RegisterActivity.this, HelpViewActivity.class);
+                Intent intent = new Intent(TutorInfoActivity.this, HelpViewActivity.class);
                 startActivity(intent);
                 return;
             }
