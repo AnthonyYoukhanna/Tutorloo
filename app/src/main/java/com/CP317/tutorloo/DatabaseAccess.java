@@ -12,7 +12,7 @@ public class DatabaseAccess {
     private static DatabaseAccess instance;
     Cursor c= null;
 
-    //Private constuctor so that objext creaction from outside is avoided
+    //Private constuctor so that objext creaction from outside is avoided.
 
     private DatabaseAccess(Context context){
         this.openHelper=new DatabaseOpenHelper(context);
