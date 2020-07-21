@@ -23,6 +23,9 @@
         <activity android:name=".TutorActivity" />
         <activity android:name=".TutorInfoActivity" />
         <activity android:name=".HelpViewActivity" />
+        <activity android:name=".StudentRegisterActivity" />
+        <activity android:name=".TutorRegisterActivity" />
+
 
 
 
