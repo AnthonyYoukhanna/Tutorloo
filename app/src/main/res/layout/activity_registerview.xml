@@ -9,30 +9,29 @@
 
     <ImageView
         android:id="@+id/leaf_logo"
-        android:layout_width="79dp"
-        android:layout_height="71dp"
+        android:layout_width="65dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="8dp"
         android:contentDescription="@string/leaf_logo"
         android:rotation="30"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.103"
+        app:layout_constraintTop_toBottomOf="@+id/PurpleHeader"
         app:srcCompat="@drawable/leaf" />
 
     <TextView
         android:id="@+id/Tutorloo_label"
-        android:layout_width="251dp"
-        android:layout_height="46dp"
+        android:layout_width="149dp"
+        android:layout_height="47dp"
         android:text="@string/tutorloo"
         android:textColor="#46159C"
         android:textSize="40sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/Background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PurpleHeader"
         app:layout_constraintVertical_bias="0.106" />
 
     <ImageView
@@ -44,21 +43,22 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/leaf_logo"
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/StudentRegister"
         android:layout_width="109dp"
         android:layout_height="44dp"
+        android:layout_marginTop="183dp"
         android:background="#330072"
         android:text="@string/student"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="@+id/Background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PurpleHeader"
-        app:layout_constraintVertical_bias="0.414" />
+        app:layout_constraintTop_toTopOf="@+id/Background"
+        app:layout_constraintVertical_bias="0.032" />
 
     <Button
         android:id="@+id/change_profile"
@@ -70,8 +70,8 @@
         app:layout_constraintBottom_toBottomOf="@+id/Background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PurpleHeader"
-        app:layout_constraintVertical_bias="0.526" />
+        app:layout_constraintTop_toBottomOf="@+id/StudentRegister"
+        app:layout_constraintVertical_bias="0.129" />
 
     <TextView
         android:id="@+id/PurpleHeader"
@@ -91,14 +91,14 @@
         android:id="@+id/HelpButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/link_to_help_view"
         android:background="?android:selectableItemBackground"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:contentDescription="@string/link_to_help_view"
+        app:layout_constraintBottom_toBottomOf="@+id/PurpleHeader"
         app:layout_constraintEnd_toEndOf="@+id/PurpleHeader"
-        app:layout_constraintHorizontal_bias="0.048"
+        app:layout_constraintHorizontal_bias="0.041"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.035"
+        app:layout_constraintTop_toTopOf="@+id/PurpleHeader"
+        app:layout_constraintVertical_bias="0.562"
         app:srcCompat="@android:drawable/ic_menu_info_details" />
 
     <TextView
@@ -109,24 +109,25 @@
         android:textColor="@color/purple"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/StudentRegister"
+        app:layout_constraintBottom_toTopOf="@+id/change_profile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.844" />
+        app:layout_constraintTop_toTopOf="@+id/Background"
+        app:layout_constraintVertical_bias="0.51" />
 
-    <ImageView
-        android:id="@+id/gd_logo"
-        android:layout_width="233dp"
-        android:layout_height="82dp"
-        android:layout_marginBottom="172dp"
-        android:contentDescription="@string/gh_logo"
+    <ImageButton
+        android:id="@+id/previous"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/yellow"
+        android:contentDescription="@string/previous_button"
         app:layout_constraintBottom_toBottomOf="@+id/Background"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/Background"
+        app:layout_constraintHorizontal_bias="0.084"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Log_in"
-        app:layout_constraintVertical_bias="0.165"
-        app:srcCompat="@drawable/goldenhawks" />
+        app:layout_constraintTop_toTopOf="@+id/Background"
+        app:layout_constraintVertical_bias="0.026"
+        app:srcCompat="@drawable/abc_vector_test" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

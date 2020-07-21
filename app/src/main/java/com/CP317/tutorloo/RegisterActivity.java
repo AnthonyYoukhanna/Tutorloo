@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class RegisterActivity extends AppCompatActivity {
     private ImageButton mInfo;
+    private ImageButton mPrevious;
 
 
     @Override
@@ -16,6 +17,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registerview);
         mInfo = (ImageButton) findViewById(R.id.HelpButton);
+        mPrevious = (ImageButton) findViewById(R.id.previous);
 
         mInfo.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -24,5 +26,14 @@ public class RegisterActivity extends AppCompatActivity {
                 return;
             }
         });
+
+        mPrevious.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(intent);
+                return;
+            }
+        });
+
     }
 }

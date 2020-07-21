@@ -29,5 +29,11 @@
     <string name="gh_logo">GH_logo</string>
     <string name="change_profile">Change Profile</string>
     <string name="goldenhawkslogo">goldenhawkslogo</string>
+    <string name="previous_button">previous_button</string>
+    <string name="login">login</string>
+    <string name="tutor_login">tutor_login</string>
+    <string name="tutorlogin">tutor login</string>
+    <string name="registeration">register</string>
+    <string name="email_input">email</string>
 
 </resources>

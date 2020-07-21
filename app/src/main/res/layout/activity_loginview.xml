@@ -9,43 +9,41 @@
 
     <ImageView
         android:id="@+id/leaf_logo"
-        android:layout_width="79dp"
-        android:layout_height="71dp"
+        android:layout_width="71dp"
+        android:layout_height="53dp"
         android:contentDescription="@string/leaf_logo"
         android:rotation="30"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/Background"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.103"
+        app:layout_constraintTop_toBottomOf="@+id/PurpleHeader"
+        app:layout_constraintVertical_bias="0.214"
         app:srcCompat="@drawable/leaf" />
 
     <TextView
         android:id="@+id/Tutorloo_label"
-        android:layout_width="251dp"
-        android:layout_height="46dp"
+        android:layout_width="155dp"
+        android:layout_height="54dp"
         android:text="@string/tutorloo"
         android:textColor="#46159C"
         android:textSize="40sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/Background"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintHorizontal_bias="0.07"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.106" />
+        app:layout_constraintTop_toBottomOf="@+id/PurpleHeader"
+        app:layout_constraintVertical_bias="0.23" />
 
     <ImageView
         android:id="@+id/Background"
         android:layout_width="421dp"
-        android:layout_height="568dp"
+        android:layout_height="600dp"
         android:background="@drawable/grey_background"
         android:contentDescription="@string/app_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/login"
@@ -53,7 +51,7 @@
         android:layout_height="44dp"
         android:background="#330072"
         android:text="@string/log_in"
-        android:hint="login"
+        android:hint="@string/login"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="@+id/Background"
         app:layout_constraintEnd_toEndOf="parent"
@@ -66,8 +64,8 @@
         android:layout_width="109dp"
         android:layout_height="44dp"
         android:background="#330072"
-        android:hint="tutor_login"
-        android:text="tutor login"
+        android:hint="@string/tutor_login"
+        android:text="@string/tutorlogin"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="@+id/Background"
         app:layout_constraintEnd_toEndOf="parent"
@@ -93,14 +91,13 @@
         android:id="@+id/HelpButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/link_to_help_view"
         android:background="?android:selectableItemBackground"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:contentDescription="@string/link_to_help_view"
+        app:layout_constraintBottom_toBottomOf="@+id/PurpleHeader"
         app:layout_constraintEnd_toEndOf="@+id/PurpleHeader"
         app:layout_constraintHorizontal_bias="0.048"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.035"
+        app:layout_constraintTop_toTopOf="@+id/PurpleHeader"
         app:srcCompat="@android:drawable/ic_menu_info_details" />
 
     <Button
@@ -108,17 +105,17 @@
         android:layout_width="66dp"
         android:layout_height="29dp"
         android:background="#FFFFFF"
+        android:hint="@string/registeration"
         android:text="@string/register"
         android:textColor="@color/purple"
         android:textSize="12sp"
-        android:hint="register"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/PurpleHeader"
         app:layout_constraintEnd_toEndOf="@+id/PurpleHeader"
         app:layout_constraintHorizontal_bias="0.942"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.035" />
+        app:layout_constraintTop_toTopOf="@+id/PurpleHeader"
+        app:layout_constraintVertical_bias="0.578" />
 
     <ImageView
         android:id="@+id/LoginLogo"
@@ -141,7 +138,7 @@
         android:importantForAutofill="no"
         android:inputType="textEmailAddress"
         android:text="@string/email"
-        android:hint="email"
+        android:hint="@string/email_input"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
