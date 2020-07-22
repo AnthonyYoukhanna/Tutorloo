@@ -12,6 +12,7 @@ public class TutorActivity extends AppCompatActivity {
 
     private Button mTutorInfo;
     private ImageButton mInfo;
+    private ImageButton mPrevious;
 
     @Override
     protected  void onCreate(Bundle savedInstanceState) {
@@ -20,6 +21,7 @@ public class TutorActivity extends AppCompatActivity {
 
         mTutorInfo = (Button) findViewById(R.id.change_profile);
         mInfo = (ImageButton) findViewById(R.id.HelpButton);
+        mPrevious = (ImageButton) findViewById(R.id.previous_tutorview);
 
         mTutorInfo.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -28,6 +30,15 @@ public class TutorActivity extends AppCompatActivity {
                 return;
             }
         });
+
+        mPrevious.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent intent = new Intent(TutorActivity.this, LoginActivity.class);
+                startActivity(intent);
+                return;
+            }
+        });
+
         mInfo.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent(TutorActivity.this, HelpViewActivity.class);
