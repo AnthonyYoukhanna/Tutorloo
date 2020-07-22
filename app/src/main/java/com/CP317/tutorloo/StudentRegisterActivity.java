@@ -15,7 +15,7 @@ public class StudentRegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_studentregisterview);
 
-        mPrevious = (ImageButton) findViewById(R.id.studentRegisterPrevious);
+        mPrevious = (ImageButton) findViewById(R.id.RegisterPrevious);
 
         mPrevious.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
