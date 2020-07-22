@@ -17,7 +17,7 @@
         app:layout_constraintHorizontal_bias="0.464"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/PurpleHeader"
-        app:layout_constraintVertical_bias="0.333"
+        app:layout_constraintVertical_bias="0.217"
         app:srcCompat="@drawable/leaf" />
 
     <TextView
@@ -29,15 +29,15 @@
         android:textSize="40sp"
         app:layout_constraintBottom_toTopOf="@+id/Background"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintHorizontal_bias="0.062"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/PurpleHeader"
-        app:layout_constraintVertical_bias="0.307" />
+        app:layout_constraintVertical_bias="0.22" />
 
     <ImageView
         android:id="@+id/Background"
-        android:layout_width="417dp"
-        android:layout_height="559dp"
+        android:layout_width="397dp"
+        android:layout_height="671dp"
         android:background="@drawable/grey_background"
         android:contentDescription="@string/app_background"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -74,14 +74,15 @@
 
     <TextView
         android:id="@+id/PurpleHeader"
-        android:layout_width="418dp"
-        android:layout_height="48dp"
+        android:layout_width="413dp"
+        android:layout_height="49dp"
         android:background="@color/purple"
-        app:layout_constraintBottom_toTopOf="@+id/imageView8"
+        app:layout_constraintBottom_toTopOf="@+id/Background"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.285"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
         android:id="@+id/HelpButton"
@@ -108,10 +109,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/PurpleHeader"
         app:layout_constraintEnd_toEndOf="@+id/PurpleHeader"
-        app:layout_constraintHorizontal_bias="0.942"
+        app:layout_constraintHorizontal_bias="0.903"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/PurpleHeader"
-        app:layout_constraintVertical_bias="0.578" />
+        app:layout_constraintVertical_bias="0.611" />
 
     <ImageView
         android:id="@+id/LoginLogo"
@@ -179,16 +180,15 @@
         app:layout_constraintVertical_bias="0.689" />
 
     <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="415dp"
-        android:layout_height="69dp"
+        android:id="@+id/white_header"
+        android:layout_width="408dp"
+        android:layout_height="92dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/Background"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/PurpleHeader"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/white_header" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
