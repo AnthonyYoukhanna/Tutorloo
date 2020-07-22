@@ -35,5 +35,8 @@
     <string name="tutorlogin">tutor login</string>
     <string name="registeration">register</string>
     <string name="background">background</string>
+<!--    <string name="student">Student</string>-->
+    <string name="studentregistrbackground">studentregistrbackground</string>
+    <string name="submit">Submit</string>
 
 </resources>

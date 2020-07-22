@@ -105,7 +105,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/previous2"
+        android:id="@+id/studentRegisterPrevious"
         android:layout_width="37dp"
         android:layout_height="36dp"
         android:background="@color/purple"

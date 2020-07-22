@@ -139,9 +139,9 @@
         android:layout_width="234dp"
         android:layout_height="43dp"
         android:ems="10"
+        android:hint="Email"
         android:importantForAutofill="no"
         android:inputType="textEmailAddress"
-        android:text="@string/email"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -153,9 +153,8 @@
         android:id="@+id/password_input"
         android:layout_width="234dp"
         android:layout_height="43dp"
-        android:contentDescription="@string/login_password"
         android:ems="10"
-        android:hint="password"
+        android:hint="Password"
         android:importantForAutofill="no"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -163,8 +162,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/PurpleHeader"
-        app:layout_constraintVertical_bias="0.596"
-        tools:text="Password" />
+        app:layout_constraintVertical_bias="0.596" />
 
     <TextView
         android:id="@+id/forgotpassword"
