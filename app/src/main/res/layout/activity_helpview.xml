@@ -7,24 +7,23 @@
     android:background="#FFFFFF">
 
 
-
-
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="413dp"
-        android:layout_height="544dp"
+        android:layout_width="394dp"
+        android:layout_height="735dp"
         android:background="@drawable/grey_background"
+        android:contentDescription="@string/background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/PurpleHeader"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="410dp"
-        android:layout_height="50dp"
+        android:layout_width="394dp"
+        android:layout_height="51dp"
         android:background="@drawable/purple_rectangle_bar"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -34,21 +33,36 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
+    <ImageButton
+        android:id="@+id/help_previous"
+        android:layout_width="35dp"
+        android:layout_height="32dp"
+        android:background="@color/purple"
+        android:contentDescription="@string/previous_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.039"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.01"
+        app:srcCompat="@drawable/abc_vector_test"
+        tools:ignore="PrivateResource" />
+
     <TextView
         android:id="@+id/textView17"
         android:layout_width="48dp"
         android:layout_height="53dp"
         android:background="@drawable/circle"
         android:gravity="center"
-        android:text="FILL IN"
+        android:text="fill in"
         android:textColor="#F2A900"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintHorizontal_bias="0.879"
         app:layout_constraintStart_toEndOf="@+id/imageView9"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.091" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.017" />
 
     <TextView
         android:id="@+id/textView16"
@@ -58,7 +72,7 @@
         android:background="@drawable/purple_rectangle_bar"
 
         android:gravity="center"
-        android:text="To view ratings and reviews, simply scroll down the tutors profile"
+        android:text="to view ratings and reviews simply scroll down the tutors profile"
         android:textColor="#F2A900"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -67,19 +81,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.912" />
 
-    <ImageButton
-        android:id="@+id/previous7"
-        android:layout_width="37dp"
-        android:layout_height="36dp"
-        android:background="@color/yellow"
-        android:contentDescription="@string/previous_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.018"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.007"
-        app:srcCompat="@drawable/abc_vector_test" />
     <TextView
         android:id="@+id/textView15"
         android:layout_width="350dp"
@@ -88,7 +89,7 @@
         android:background="@drawable/purple_rectangle_bar"
 
         android:gravity="center"
-        android:text="If you are a student don't be afraid to reach out"
+        android:text="if you are a student don't be afraid to reach out"
         android:textColor="#F2A900"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -117,8 +118,9 @@
 
     <ImageView
         android:id="@+id/imageView9"
-        android:layout_width="79dp"
-        android:layout_height="71dp"
+        android:layout_width="65dp"
+        android:layout_height="59dp"
+        android:contentDescription="@string/leaf_logo"
         android:rotation="30"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -147,8 +149,8 @@
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="251dp"
-        android:layout_height="46dp"
+        android:layout_width="198dp"
+        android:layout_height="53dp"
         android:layout_marginBottom="76dp"
         android:text="Tutorloo"
         android:textColor="#46159C"
@@ -156,7 +158,8 @@
         app:layout_constraintBottom_toBottomOf="@+id/profile_icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
         android:id="@+id/profile_icon"
@@ -167,9 +170,8 @@
         android:textSize="29sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.221" />
+        app:layout_constraintVertical_bias="0.222" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
