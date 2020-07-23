@@ -49,22 +49,6 @@
         tools:ignore="PrivateResource" />
 
     <TextView
-        android:id="@+id/textView17"
-        android:layout_width="48dp"
-        android:layout_height="53dp"
-        android:background="@drawable/circle"
-        android:gravity="center"
-        android:text="fill in"
-        android:textColor="#F2A900"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.879"
-        app:layout_constraintStart_toEndOf="@+id/imageView9"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.017" />
-
-    <TextView
         android:id="@+id/textView16"
         android:layout_width="350dp"
         android:layout_height="80dp"

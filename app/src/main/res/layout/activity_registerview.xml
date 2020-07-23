@@ -105,19 +105,6 @@
         tools:ignore="PrivateResource" />
 
 
-    <ImageButton
-        android:id="@+id/HelpButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="?android:selectableItemBackground"
-        android:contentDescription="@string/link_to_help_view"
-        app:layout_constraintBottom_toBottomOf="@+id/PurpleHeader"
-        app:layout_constraintEnd_toEndOf="@+id/PurpleHeader"
-        app:layout_constraintHorizontal_bias="0.135"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/PurpleHeader"
-        app:srcCompat="@android:drawable/ic_menu_info_details" />
-
     <TextView
         android:id="@+id/user_type"
         android:layout_width="wrap_content"

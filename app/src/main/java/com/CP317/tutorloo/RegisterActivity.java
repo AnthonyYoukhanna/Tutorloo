@@ -9,7 +9,6 @@ import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class RegisterActivity extends AppCompatActivity {
-    private ImageButton mInfo;
     private ImageButton mPrevious;
     private Button mStudent, mTutor;
 
@@ -18,19 +17,9 @@ public class RegisterActivity extends AppCompatActivity {
     protected  void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registerview);
-        mInfo = (ImageButton) findViewById(R.id.HelpButton);
         mPrevious = (ImageButton) findViewById(R.id.previous);
         mStudent = (Button) findViewById((R.id.StudentRegister));
         mTutor = (Button) findViewById((R.id.TutorRegister));
-
-
-        mInfo.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent intent = new Intent(RegisterActivity.this, HelpViewActivity.class);
-                startActivity(intent);
-                return;
-            }
-        });
 
         mPrevious.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {

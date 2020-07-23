@@ -4,23 +4,35 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class TutorInfoActivity extends AppCompatActivity {
-   private ImageButton mInfo;
-
+   private ImageButton mPrevious;
+   private Button mSave;
 
     @Override
     protected  void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutorinfoview);
 
-        mInfo = (ImageButton) findViewById(R.id.HelpButton);
 
-        mInfo.setOnClickListener(new View.OnClickListener() {
+        mPrevious = (ImageButton) findViewById(R.id.previous5);
+        mSave = (Button) findViewById(R.id.button2);
+
+
+        mPrevious.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent intent = new Intent(TutorInfoActivity.this, HelpViewActivity.class);
+                Intent intent = new Intent(TutorInfoActivity.this, TutorRegisterActivity.class);
+                startActivity(intent);
+                return;
+            }
+        });
+
+        mSave.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent intent = new Intent(TutorInfoActivity.this, TutorActivity.class);
                 startActivity(intent);
                 return;
             }
