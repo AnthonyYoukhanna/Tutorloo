@@ -25,9 +25,6 @@ public class LoginActivity extends AppCompatActivity {
     // private authentication listener?
     // zack test
 
-
-
-
     @Override
     protected  void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
