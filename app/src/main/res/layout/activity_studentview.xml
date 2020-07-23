@@ -74,17 +74,6 @@
         app:layout_constraintTop_toBottomOf="@+id/Tutorloo_label"
         app:layout_constraintVertical_bias="1.0" />
 
-    <Button
-        android:id="@+id/change_profile"
-        android:layout_width="122dp"
-        android:layout_height="46dp"
-        android:background="#330072"
-        android:text="@string/change_profile"
-        android:textColor="@color/yellow"
-        app:layout_constraintBottom_toBottomOf="@+id/Background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <ImageButton
         android:id="@+id/HelpButton"
         android:layout_width="wrap_content"
@@ -100,7 +89,7 @@
         app:srcCompat="@android:drawable/ic_menu_info_details" />
 
     <ImageButton
-        android:id="@+id/previous2"
+        android:id="@+id/RegisterPrevious"
         android:layout_width="37dp"
         android:layout_height="36dp"
         android:background="@color/purple"
@@ -132,11 +121,9 @@
         android:layout_width="233dp"
         android:layout_height="82dp"
         android:contentDescription="@string/goldenhawkslogo"
-        app:layout_constraintBottom_toTopOf="@+id/change_profile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/Background"
-        app:layout_constraintVertical_bias="0.944"
         app:srcCompat="@drawable/goldenhawks" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

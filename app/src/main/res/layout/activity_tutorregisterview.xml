@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/submit"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -59,7 +60,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/abc_vector_test"
-        tools:ignore="PrivateResource"/>
+        tools:ignore="PrivateResource" />
 
     <ImageView
         android:id="@+id/background"
@@ -76,20 +77,6 @@
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/grey_background" />
-
-    <Button
-        android:id="@+id/tutorContinue"
-        android:layout_width="109dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="392dp"
-        android:background="#330072"
-        android:text="Continue"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.275" />
 
     <ImageView
         android:id="@+id/leaf_logo2"
@@ -199,5 +186,19 @@
         app:layout_constraintTop_toBottomOf="@+id/studentRegister"
         app:layout_constraintVertical_bias="0.511"
         app:srcCompat="@drawable/goldenhawks" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="109dp"
+        android:layout_height="44dp"
+        android:background="@color/purple"
+        android:text="Continue"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/imageView11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.916" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
