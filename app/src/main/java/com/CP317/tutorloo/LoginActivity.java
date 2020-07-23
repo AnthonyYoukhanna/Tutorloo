@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,6 +18,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button mTutorLogin;
     private ImageButton mInfo;
     private EditText mEmail, mPassword;
+    private TextView mReset;
     //DatabaseHelper myDb = new DatabaseHelper(getApplicationContext());
 
     // private authentification through sqlite
@@ -35,6 +37,7 @@ public class LoginActivity extends AppCompatActivity {
         mRegister = (Button) findViewById(R.id.RegisterButton);
         mTutorLogin = (Button) findViewById(R.id.tutor_login);
         mInfo = (ImageButton) findViewById(R.id.HelpButton);
+        mReset = (TextView) findViewById(R.id.forgotpassword);
 
 
         mEmail = (EditText) findViewById(R.id.Email_input);
@@ -74,6 +77,15 @@ public class LoginActivity extends AppCompatActivity {
                 return;
             }
         });
+
+        mReset.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, ResetPasswordActivity.class);
+                startActivity(intent);
+                return;
+            }
+        });
+
     }
 
 }
