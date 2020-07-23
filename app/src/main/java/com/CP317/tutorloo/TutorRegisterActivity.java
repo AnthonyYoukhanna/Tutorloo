@@ -41,7 +41,7 @@ public class TutorRegisterActivity extends AppCompatActivity {
 
         mContinue.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent intent = new Intent(TutorRegisterActivity.this, TutorActivity.class);
+                Intent intent = new Intent(TutorRegisterActivity.this, TutorInfoActivity.class);
                 startActivity(intent);
                 return;
             }
