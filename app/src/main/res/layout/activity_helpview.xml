@@ -48,58 +48,6 @@
         app:srcCompat="@drawable/abc_vector_test"
         tools:ignore="PrivateResource" />
 
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="350dp"
-        android:layout_height="80dp"
-
-        android:background="@drawable/purple_rectangle_bar"
-
-        android:gravity="center"
-        android:text="to view ratings and reviews simply scroll down the tutors profile"
-        android:textColor="#F2A900"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.912" />
-
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="350dp"
-        android:layout_height="80dp"
-
-        android:background="@drawable/purple_rectangle_bar"
-
-        android:gravity="center"
-        android:text="if you are a student don't be afraid to reach out"
-        android:textColor="#F2A900"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.725" />
-
-    <TextView
-
-        android:id="@+id/textView14"
-        android:layout_width="350dp"
-        android:layout_height="80dp"
-
-        android:background="@drawable/purple_rectangle_bar"
-
-        android:gravity="center"
-        android:text="Remember to be polite and professional when chatting"
-        android:textColor="#F2A900"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.542" />
-
     <ImageView
         android:id="@+id/imageView9"
         android:layout_width="65dp"
@@ -113,23 +61,6 @@
         app:layout_constraintTop_toTopOf="@+id/textView2"
         app:layout_constraintVertical_bias="0.093"
         app:srcCompat="@drawable/leaf" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="350dp"
-        android:layout_height="80dp"
-
-        android:background="@drawable/purple_rectangle_bar"
-
-        android:gravity="center"
-        android:text="Make sure all of your information is up to date and accurate"
-        android:textColor="#F2A900"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.353" />
 
     <TextView
         android:id="@+id/textView6"
@@ -157,5 +88,195 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.222" />
+
+    <ScrollView
+        android:layout_width="354dp"
+        android:layout_height="449dp"
+        android:scrollbarAlwaysDrawHorizontalTrack="false"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbarStyle="insideOverlay"
+        android:soundEffectsEnabled="true"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.609"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_icon"
+        app:layout_constraintVertical_bias="1.0">
+
+        <LinearLayout
+            android:layout_width="350dp"
+            android:layout_height="500dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="match_parent"
+                android:layout_height="76dp"
+
+                android:background="@drawable/purple_rectangle_bar"
+
+                android:gravity="center"
+                android:text="To view ratings and reviews simply scroll down the tutors profile"
+                android:textColor="#F2A900"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/space1"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+
+                android:background="@drawable/grey_background"
+
+                android:gravity="center"
+
+                android:textColor="#F2A900"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="match_parent"
+                android:layout_height="76dp"
+
+                android:background="@drawable/purple_rectangle_bar"
+
+                android:gravity="center"
+                android:text="Want to logout? Simply click your initals and select 'Logout'"
+                android:textColor="#F2A900"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/space2"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+
+                android:background="@drawable/grey_background"
+
+                android:gravity="center"
+
+                android:textColor="#F2A900"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="match_parent"
+                android:layout_height="76dp"
+
+                android:background="@drawable/purple_rectangle_bar"
+
+                android:gravity="center"
+                android:text="Make sure all of your information is up to date and accurate"
+                android:textColor="#F2A900"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/space3"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+
+                android:background="@drawable/grey_background"
+
+                android:gravity="center"
+
+                android:textColor="#F2A900"
+                android:textSize="15sp" />
+
+            <TextView
+
+                android:id="@+id/textView14"
+                android:layout_width="match_parent"
+                android:layout_height="76dp"
+
+                android:background="@drawable/purple_rectangle_bar"
+
+                android:gravity="center"
+                android:text="Remember to be polite and professional when chatting"
+                android:textColor="#F2A900"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/space8"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+
+                android:background="@drawable/grey_background"
+
+                android:gravity="center"
+
+                android:textColor="#F2A900"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="match_parent"
+                android:layout_height="76dp"
+
+                android:background="@drawable/purple_rectangle_bar"
+
+                android:gravity="center"
+                android:text="if you are a student don't be afraid to reach out"
+                android:textColor="#F2A900"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/space5"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+
+                android:background="@drawable/grey_background"
+
+                android:gravity="center"
+
+                android:textColor="#F2A900"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="match_parent"
+                android:layout_height="76dp"
+
+                android:background="@drawable/purple_rectangle_bar"
+
+                android:gravity="center"
+                android:text="Leave ratings and reviews for tutors!"
+                android:textColor="#F2A900"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/space6"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+
+                android:background="@drawable/grey_background"
+
+                android:gravity="center"
+
+                android:textColor="#F2A900"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="match_parent"
+                android:layout_height="76dp"
+
+                android:background="@drawable/purple_rectangle_bar"
+
+                android:gravity="center"
+                android:text="View a tutors profile by clicking on their picture"
+                android:textColor="#F2A900"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/space4"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+
+                android:background="@drawable/grey_background"
+
+                android:gravity="center"
+
+                android:textColor="#F2A900"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
