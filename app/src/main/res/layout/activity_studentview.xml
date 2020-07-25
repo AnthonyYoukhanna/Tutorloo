@@ -33,6 +33,17 @@
         app:layout_constraintVertical_bias="0.011" />
 
     <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="429dp"
+        android:layout_height="787dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/grey_background" />
+
+    <ImageView
         android:id="@+id/leaf_logo5"
         android:layout_width="65dp"
         android:layout_height="59dp"
@@ -40,17 +51,16 @@
         android:rotation="30"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.435"
+        app:layout_constraintHorizontal_bias="0.457"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.068"
+        app:layout_constraintVertical_bias="0.084"
         app:srcCompat="@drawable/leaf" />
 
     <TextView
         android:id="@+id/tutorloo_label4"
         android:layout_width="152dp"
         android:layout_height="52dp"
-        android:layout_marginBottom="660dp"
         android:text="@string/tutorloo"
         android:textColor="#46159C"
         android:textSize="40sp"
@@ -58,18 +68,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.066"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:layout_constraintVertical_bias="0.083" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.077" />
 
     <ImageView
-        android:id="@+id/imageView12"
+        android:id="@+id/imageView13"
         android:layout_width="171dp"
         android:layout_height="69dp"
-        android:layout_marginTop="500dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:layout_constraintVertical_bias="0.856"
         app:srcCompat="@drawable/goldenhawks" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
