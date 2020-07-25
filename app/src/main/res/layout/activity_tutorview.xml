@@ -15,34 +15,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/previous2"
-        android:layout_width="37dp"
-        android:layout_height="36dp"
-        android:background="@color/purple"
-        android:contentDescription="@string/previous_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.016"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.015"
-        app:srcCompat="@drawable/abc_vector_test" />
-
-    <ImageButton
-        android:id="@+id/helpButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="?android:selectableItemBackground"
-        android:contentDescription="@string/link_to_help_view"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.119"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.019"
-        app:srcCompat="@android:drawable/ic_menu_info_details" />
-
     <TextView
         android:id="@+id/user_type2"
         android:layout_width="59dp"
@@ -59,26 +31,27 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="414dp"
+        android:layout_height="776dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.523"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/grey_background" />
 
     <ImageView
         android:id="@+id/leaf_logo4"
         android:layout_width="65dp"
         android:layout_height="59dp"
-        android:layout_marginBottom="656dp"
         android:contentDescription="@string/leaf_logo"
         android:rotation="30"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.442"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/PurpleHeader"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.095"
         app:srcCompat="@drawable/leaf" />
 
@@ -98,8 +71,8 @@
 
     <ImageView
         android:id="@+id/imageView10"
-        android:layout_width="394dp"
-        android:layout_height="340dp"
+        android:layout_width="406dp"
+        android:layout_height="345dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView3"
         app:layout_constraintHorizontal_bias="0.0"
