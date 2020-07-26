@@ -26,6 +26,8 @@
         <activity android:name=".StudentRegisterActivity" />
         <activity android:name=".ResetPasswordActivity"/>
         <activity android:name=".TutorRegisterActivity" />
+        <activity android:name=".TutorProfileActivity"/>
+        <activity android:name=".StudentProfileActivity"/>
 
 
 

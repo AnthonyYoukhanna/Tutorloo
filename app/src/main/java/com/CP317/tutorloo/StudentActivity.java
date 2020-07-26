@@ -1,5 +1,6 @@
 package com.CP317.tutorloo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.PopupMenu;
@@ -29,10 +30,13 @@ public class StudentActivity extends AppCompatActivity implements PopupMenu.OnMe
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.profile:
-                Toast.makeText(this, "Profile button clicked", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(StudentActivity.this, StudentProfileActivity.class);
+                startActivity(intent);
                 return true;
             case R.id.logout:
-                Toast.makeText(this, "Logout button clicked", Toast.LENGTH_SHORT).show();
+                //Needs to be updated
+                Intent intent2 = new Intent(StudentActivity.this, LoginActivity.class);
+                startActivity(intent2);
                 return true;
             default:
                 return false;

@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.PopupMenu;
 import android.widget.Toast;
 
@@ -31,10 +29,12 @@ public class TutorActivity extends AppCompatActivity implements PopupMenu.OnMenu
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.profile:
-                Toast.makeText(this, "Profile button clicked", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(TutorActivity.this, TutorProfileActivity.class);
+                startActivity(intent);
                 return true;
             case R.id.logout:
-                Toast.makeText(this, "Logout button clicked", Toast.LENGTH_SHORT).show();
+                Intent intent2 = new Intent(TutorActivity.this, LoginActivity.class);
+                startActivity(intent2);
                 return true;
             default:
                 return false;
