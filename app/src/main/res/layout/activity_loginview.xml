@@ -12,13 +12,13 @@
         android:layout_width="394dp"
         android:layout_height="735dp"
         android:background="@drawable/grey_background"
+        android:contentDescription="TODO"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/PurpleHeader"
-        app:layout_constraintVertical_bias="1.0"
-        android:contentDescription="TODO" />
+        app:layout_constraintVertical_bias="0.636" />
 
     <ImageView
         android:id="@+id/leaf_logo"
