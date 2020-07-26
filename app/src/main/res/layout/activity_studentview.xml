@@ -82,4 +82,17 @@
         app:layout_constraintVertical_bias="0.856"
         app:srcCompat="@drawable/goldenhawks" />
 
+    <ImageView
+        android:id="@+id/imageView19"
+        android:layout_width="96dp"
+        android:layout_height="47dp"
+        android:onClick="showPopup"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.989"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:layout_constraintVertical_bias="0.018"
+        app:srcCompat="@drawable/user_ciecle_round_account_person_512" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
