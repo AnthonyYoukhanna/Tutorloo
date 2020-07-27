@@ -29,6 +29,7 @@ public class StudentProfileActivity extends AppCompatActivity {
             }
         });
 
+        //Must be updated to correspond with the actual previous page.- Regina
         mPrevious.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent(StudentProfileActivity.this, StudentActivity.class);
