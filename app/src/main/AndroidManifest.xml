@@ -28,6 +28,7 @@
         <activity android:name=".TutorRegisterActivity" />
         <activity android:name=".TutorProfileActivity"/>
         <activity android:name=".StudentProfileActivity"/>
+        <activity android:name=".EditProfileStudentActivity"/>
 
 
 
