@@ -9,5 +9,6 @@
     <color name= "purple">#330072</color>
     <color name= "yellow"> #F2A900</color>
     <color name= "white">#FFFFFF</color>
+    <color name= "light_yellow">#ffffcc</color>
 
 </resources>
