@@ -81,6 +81,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVer, int newVer) {
     }
 
+
 //    public boolean passAuth(String email, String password){
 //        SQLiteDatabase db = this.getReadableDatabase();
 //        Cursor mCursor = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE NAME='?' AND PASSWORD='?';",
