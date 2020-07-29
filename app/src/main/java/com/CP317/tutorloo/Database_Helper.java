@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 import java.sql.Date;
 
 public class Database_Helper extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME = "Users.db";
+    public static final String DATABASE_NAME = "Users1.db";
 
 
     public static final String Table_Name_Student = "Student";
@@ -31,7 +31,7 @@ public class Database_Helper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL("CREATE TABLE "+ Table_Name_Student+" (Student_id INTEGER PRIMARY KEY AUTOINCREMENT,Last_Name VARCHAR,First_Name VARCHAR,Date_Of_Birth DATE,Email STRING)");
+        sqLiteDatabase.execSQL("CREATE TABLE "+ Table_Name_Student + " (Student_id INTEGER PRIMARY KEY AUTOINCREMENT,Last_Name VARCHAR,First_Name VARCHAR,Date_Of_Birth DATE,Email STRING,Encrypt_Pass VARCHAR) ");
 
 
     }
@@ -55,7 +55,7 @@ public class Database_Helper extends SQLiteOpenHelper {
 
 
         //Password encryption goes here? also student id gen
-        //contentValues.put("Encrypt_Pass", password);
+        contentValues.put("Encrypt_Pass", password);
         long result = db.insert("Student", null, contentValues);
         if (result == 1) {
             return false;
