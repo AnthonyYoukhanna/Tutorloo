@@ -15,7 +15,7 @@ import java.text.SimpleDateFormat;
 
 public class StudentRegisterActivity extends AppCompatActivity {
 
-    dbController db;
+    Database_Helper db;
     private ImageButton mPrevious;
     private Button mSubmit;
     private EditText mEmail;
@@ -26,16 +26,22 @@ public class StudentRegisterActivity extends AppCompatActivity {
     private EditText mConPass;
 
 
+
     @Override
     protected  void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_studentregisterview);
-
-        db = new dbController(this);
-
+        db = new Database_Helper(this);
 
         mPrevious = (ImageButton) findViewById(R.id.RegisterPrevious);
         mSubmit = (Button) findViewById(R.id.submit);
+        mEmail = (EditText) findViewById(R.id.email);
+        mFirst = (EditText) findViewById(R.id.firstName);
+        mLast = (EditText) findViewById(R.id.lastName);
+        mPassword = (EditText) findViewById(R.id.password);
+        mConPass = (EditText) findViewById(R.id.confirmpass);
+        mDOB = (EditText) findViewById(R.id.dob);
+        AddData();
 
 
 
@@ -47,14 +53,13 @@ public class StudentRegisterActivity extends AppCompatActivity {
             }
         });
 
+
+    }
+
+    public void AddData(){
         mSubmit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                mEmail = (EditText) findViewById(R.id.email);
-                mFirst = (EditText) findViewById(R.id.firstName);
-                mLast = (EditText) findViewById(R.id.lastName);
-                mPassword = (EditText) findViewById(R.id.password);
-                mConPass = (EditText) findViewById(R.id.confirmpass);
-                mDOB = (EditText) findViewById(R.id.dob);
+
                 String password = mPassword.getText().toString();
                 String conPassword = mPassword.getText().toString();
 
@@ -91,5 +96,6 @@ public class StudentRegisterActivity extends AppCompatActivity {
 
             }
         });
+
     }
 }
