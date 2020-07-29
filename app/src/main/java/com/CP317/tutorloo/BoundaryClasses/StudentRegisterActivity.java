@@ -1,4 +1,4 @@
-package com.CP317.tutorloo;
+package com.CP317.tutorloo.BoundaryClasses;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,9 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.CP317.tutorloo.ControllerClasses.dbController;
+import com.CP317.tutorloo.R;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

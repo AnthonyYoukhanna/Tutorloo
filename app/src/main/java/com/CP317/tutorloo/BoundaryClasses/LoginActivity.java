@@ -1,4 +1,4 @@
-package com.CP317.tutorloo;
+package com.CP317.tutorloo.BoundaryClasses;
 
 
 import android.content.Intent;
@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.CP317.tutorloo.R;
 
 public class LoginActivity extends AppCompatActivity {
 
