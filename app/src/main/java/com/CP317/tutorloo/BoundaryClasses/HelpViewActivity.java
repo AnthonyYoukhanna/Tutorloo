@@ -1,4 +1,4 @@
-package com.CP317.tutorloo;
+package com.CP317.tutorloo.BoundaryClasses;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.CP317.tutorloo.R;
 
 public class HelpViewActivity extends AppCompatActivity {
     private ImageButton mPrevious;

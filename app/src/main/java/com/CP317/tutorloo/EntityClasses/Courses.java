@@ -1,4 +1,4 @@
-package com.CP317.tutorloo;
+package com.CP317.tutorloo.EntityClasses;
 
 public class Courses {
 

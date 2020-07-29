@@ -1,4 +1,4 @@
-package com.CP317.tutorloo;
+package com.CP317.tutorloo.BoundaryClasses;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,10 +8,11 @@ import android.widget.AutoCompleteTextView;
 import android.widget.PopupMenu;
 import android.widget.ImageButton;
 import android.view.View;
-import android.widget.Toast;
 
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.CP317.tutorloo.R;
 
 public class StudentActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
 
