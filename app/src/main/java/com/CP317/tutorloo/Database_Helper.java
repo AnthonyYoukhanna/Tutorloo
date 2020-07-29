@@ -19,7 +19,7 @@ public class Database_Helper extends SQLiteOpenHelper {
     public static final String col_3 = "First_Name";
     public static final String col_4 = "Date_Of_Birth";
     public static final String col_5 = "Email";
-    public static final String col_6 = "Ecrypt_Pass";
+    public static final String col_6 = "Encrypt_Pass";
 
 
 
@@ -31,7 +31,7 @@ public class Database_Helper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL("create table "+ Table_Name_Student+" (Student_id INTEGER PRIMARY KEY AUTOINCREMENT,Last_Name VARCHAR,First_Name VARCHAR,Date_Of_Birth DATE,Email STRING, Ecrypt_Pass VARCHAR)");
+        sqLiteDatabase.execSQL("CREATE TABLE "+ Table_Name_Student+" (Student_id INTEGER PRIMARY KEY AUTOINCREMENT,Last_Name VARCHAR,First_Name VARCHAR,Date_Of_Birth DATE,Email STRING)");
 
 
     }
@@ -48,15 +48,15 @@ public class Database_Helper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
-        contentValues.put("first_name", firstName);
-        contentValues.put("last_name", lastName);
-        contentValues.put("email", email);
+        contentValues.put("First_Name", firstName);
+        contentValues.put("Last_Name", lastName);
+        contentValues.put("Email", email);
         contentValues.put("Date_of_Birth", String.valueOf(dateOfBirth));
 
 
         //Password encryption goes here? also student id gen
-        contentValues.put("encrypt_pass", password);
-        long result = db.insert("student", null, contentValues);
+        //contentValues.put("Encrypt_Pass", password);
+        long result = db.insert("Student", null, contentValues);
         if (result == 1) {
             return false;
         } else {
