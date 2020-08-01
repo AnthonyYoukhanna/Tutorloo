@@ -11,10 +11,23 @@ import androidx.annotation.Nullable;
 import java.sql.Date;
 
 public class Database_Helper extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME = "Users1.db";
+    public static final String DATABASE_NAME = "Users.db";
 
 
     public static final String Table_Name_Student = "Student";
+    public static final String Table_Name_tutor = "tutor";
+    public static final String Table_Name_user_course = "user_course";
+    public static final String Table_Name_user_photo = "user_photo";
+    public static final String Table_Name_user_program = "user_program";
+    public static final String Table_Name_courses = "courses";
+    public static final String Table_Name_programs = "programs";
+
+
+
+
+
+
+
     public static final String col_1 = "Student_id";
     public static final String col_2 = "Last_Name";
     public static final String col_3 = "First_Name";
@@ -30,7 +43,15 @@ public class Database_Helper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL("CREATE TABLE "+ Table_Name_Student + " (Student_id INTEGER PRIMARY KEY AUTOINCREMENT,Last_Name VARCHAR,First_Name VARCHAR,Date_Of_Birth DATE,Email STRING,Encrypt_Pass VARCHAR) ");
+        sqLiteDatabase.execSQL("CREATE TABLE "+ Table_Name_Student+" (Student_id INTEGER,Last_Name VARCHAR,First_Name VARCHAR,Date_Of_Birth DATE,Email STRING,Encrypt_Pass VARCHAR) ");
+        sqLiteDatabase.execSQL("CREATE TABLE "+ Table_Name_tutor+" (Tutor_id INTEGER PRIMARY KEY AUTOINCREMENT,Last_Name VARCHAR,First_Name VARCHAR,Date_Of_Birth DATE,Email STRING,Encrypt_Pass VARCHAR,Biography LONGTEXT,Year_Of_Study INTEGER,Hourly_Fee INTEGER,Rating INTERGER) ");
+        sqLiteDatabase.execSQL("CREATE TABLE "+ Table_Name_user_course+" (Course_id SMALLINT,Tutor_id SMALLINT) ");
+        sqLiteDatabase.execSQL("CREATE TABLE "+ Table_Name_user_photo+" (Photo_id SMALLINT,Tutor_id SMALLINT,Link TEXT, Time_Added TIMESTAMP, Active BOOLEAN) ");
+        sqLiteDatabase.execSQL("CREATE TABLE "+ Table_Name_user_program+" (Program_id SMALLINT,Tutor_id SMALLINT) ");
+        sqLiteDatabase.execSQL("CREATE TABLE "+ Table_Name_courses+" (Course_id SMALLINT,Name VARCHAR) ");
+        sqLiteDatabase.execSQL("CREATE TABLE "+ Table_Name_programs+" (Program_id SMALLINT,Name VARCHAR) ");
+
+
 
 
     }
