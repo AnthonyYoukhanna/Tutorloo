@@ -2,6 +2,7 @@ package com.CP317.tutorloo;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -20,8 +21,6 @@ public class Database_Helper extends SQLiteOpenHelper {
     public static final String col_4 = "Date_Of_Birth";
     public static final String col_5 = "Email";
     public static final String col_6 = "Encrypt_Pass";
-
-
 
 
 
@@ -64,5 +63,21 @@ public class Database_Helper extends SQLiteOpenHelper {
         }
 
 
+    }
+    //checking if user exists
+    public boolean checkStudent(String email, String password) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("Select * from Student where Email=? and Encrypt_Pass=?", new String[]{email, password});
+        int count = cursor.getCount();
+
+        boolean exists;
+        if (count > 0) {
+            exists  = true;
+        }
+        else {
+            exists = false;
+        }
+
+        return exists;
     }
 }

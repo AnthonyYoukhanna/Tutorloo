@@ -7,8 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import androidx.appcompat.app.AppCompatActivity;
+import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import com.CP317.tutorloo.Database_Helper;
 import com.CP317.tutorloo.R;
 
 public class LoginActivity extends AppCompatActivity {
@@ -19,6 +21,7 @@ public class LoginActivity extends AppCompatActivity {
     private ImageButton mInfo;
     private EditText mEmail, mPassword;
     private Button mReset;
+    Database_Helper db;
     //DatabaseHelper myDb = new DatabaseHelper(getApplicationContext());
 
     // private authentification through sqlite
@@ -30,6 +33,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loginview);
 
+        db = new Database_Helper(this);
         mLogin = (Button) findViewById(R.id.login);
         mRegister = (Button) findViewById(R.id.RegisterButton);
         mTutorLogin = (Button) findViewById(R.id.tutor_login);
@@ -45,9 +49,18 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 final String email = mEmail.getText().toString();
                 final String password = mPassword.getText().toString(); //Add auth through sqlite db
-                Intent intent = new Intent(LoginActivity.this, StudentActivity.class);
-                startActivity(intent);
-                finish();
+
+                boolean user_exists = db.checkStudent(email, password);
+                if (user_exists == true) {
+                    Toast.makeText(getApplicationContext(), "Successfully login", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(LoginActivity.this, StudentActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "User not found", Toast.LENGTH_LONG).show();
+                }
+
                 return;
             }
         });
