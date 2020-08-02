@@ -21,6 +21,11 @@ public class StudentActivity extends AppCompatActivity implements PopupMenu.OnMe
             "CP104", "CP164", "CP264", "CP216", "CP220", "CP317", "CP386"
     };
 
+    private static final String[] PROGRAMS = new String[] {
+            "Computer Science", "BBA & CS", "Psychology & CS", "Math and CS"
+    };
+
+
     private ImageButton mSearch;
     @Override
     protected  void onCreate(Bundle savedInstanceState) {
@@ -28,9 +33,14 @@ public class StudentActivity extends AppCompatActivity implements PopupMenu.OnMe
         setContentView(R.layout.activity_studentview);
 
         //FOR TESTING PURPOSED. MUST BE UPDATED TO TALK TO DB- REGINA
-        AutoCompleteTextView editText = findViewById(R.id.searchBar);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, COURSES);
-        editText.setAdapter(adapter);
+        AutoCompleteTextView searchCourse = findViewById(R.id.searchByCourse);
+        ArrayAdapter<String> course_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, COURSES);
+        searchCourse.setAdapter(course_adapter);
+
+        //FOR TESTING PURPOSED. MUST BE UPDATED TO TALK TO DB- REGINA
+        AutoCompleteTextView searchProgram = findViewById(R.id.searchByProgram);
+        ArrayAdapter<String> program_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, PROGRAMS);
+        searchProgram.setAdapter(program_adapter);
 
         //Search button functionality
         mSearch = (ImageButton) findViewById(R.id.searchButton);

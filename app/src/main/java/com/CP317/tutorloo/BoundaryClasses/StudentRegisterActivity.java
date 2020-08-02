@@ -7,14 +7,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
-
-
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.CP317.tutorloo.ControllerClasses.dbController;
 import com.CP317.tutorloo.Database_Helper;
 import com.CP317.tutorloo.R;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import android.util.Patterns;

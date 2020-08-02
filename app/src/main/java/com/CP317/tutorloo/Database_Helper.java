@@ -23,11 +23,6 @@ public class Database_Helper extends SQLiteOpenHelper {
     public static final String Table_Name_programs = "programs";
 
 
-
-
-
-
-
     public static final String col_1 = "Student_id";
     public static final String col_2 = "Last_Name";
     public static final String col_3 = "First_Name";

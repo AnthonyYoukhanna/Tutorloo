@@ -96,29 +96,49 @@
         app:srcCompat="@drawable/user_ciecle_round_account_person_512" />
 
     <AutoCompleteTextView
-        android:id="@+id/searchBar"
+        android:id="@+id/searchByName"
         android:layout_width="323dp"
         android:layout_height="58dp"
-        android:completionHint="Search by Name, Course, Program"
         android:completionThreshold="1"
-        android:hint="Search by Name, Course, or Program"
+        android:hint="Search by Name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.228"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.207" />
+        app:layout_constraintVertical_bias="0.231" />
 
     <ImageButton
         android:id="@+id/searchButton"
-        android:layout_width="49dp"
-        android:layout_height="53dp"
+        android:layout_width="94dp"
+        android:layout_height="51dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.985"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.206"
+        app:layout_constraintVertical_bias="0.6"
         app:srcCompat="@android:drawable/ic_menu_search" />
+
+    <AutoCompleteTextView
+        android:id="@+id/searchByCourse"
+        android:layout_width="323dp"
+        android:layout_height="58dp"
+        android:hint="Search by Course"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchByName"
+        app:layout_constraintVertical_bias="0.047" />
+
+    <AutoCompleteTextView
+        android:id="@+id/searchByProgram"
+        android:layout_width="323dp"
+        android:layout_height="58dp"
+        android:hint="Search by Program"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchByCourse"
+        app:layout_constraintVertical_bias="0.073" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
