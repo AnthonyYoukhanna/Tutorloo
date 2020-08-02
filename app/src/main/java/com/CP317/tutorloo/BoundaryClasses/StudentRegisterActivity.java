@@ -1,18 +1,26 @@
 package com.CP317.tutorloo.BoundaryClasses;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.util.Patterns;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.CP317.tutorloo.Database_Helper;
 import com.CP317.tutorloo.R;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import android.util.Patterns;
 import java.util.regex.Pattern;
 
 public class StudentRegisterActivity extends AppCompatActivity {
@@ -31,13 +39,13 @@ public class StudentRegisterActivity extends AppCompatActivity {
             Pattern.compile("^" +
                     "(?=.*[0-9])" +
                     "(?=.*[a-zA-Z])" +      //any letter
-                    "(?=.*[@#$%^&+=])" +    //at least 1 special character
+                    "(?=.*[@#$%^&+=+_])" +    //at least 1 special character
                     "(?=\\S+$)" +           //no white spaces
                     ".{4,}" +               //at least 4 characters
                     "$");
 
     @Override
-    protected  void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_studentregisterview);
         db = new Database_Helper(this);
@@ -62,6 +70,19 @@ public class StudentRegisterActivity extends AppCompatActivity {
         });
 
 
+
+
+    }
+
+
+    //Hides keyboard when clicking off edit text box
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        if (getCurrentFocus() != null) {
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+        }
+        return super.dispatchTouchEvent(ev);
     }
 
     public void AddData(){
@@ -73,6 +94,7 @@ public class StudentRegisterActivity extends AppCompatActivity {
         });
 
     }
+
 
     //-----------Validate email and password-------------
     public void SetValidation() {
@@ -155,6 +177,18 @@ public class StudentRegisterActivity extends AppCompatActivity {
             //-----------------Check if user was inserted in the database------------
             boolean insert = db.insertStudent(firstname,lastname,email,password, finalDOB);
             if (insert == true){
+
+                //Add email and username to shared preferences
+                final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putBoolean("Registered", true);
+                editor.putString("Username", email);
+                editor.putString("Password", password);
+                editor.putBoolean("Student", true);
+
+                editor.apply();
+
+
                 Toast.makeText(StudentRegisterActivity.this, "Successfully Created", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(StudentRegisterActivity.this, StudentActivity.class);
                 startActivity(intent);

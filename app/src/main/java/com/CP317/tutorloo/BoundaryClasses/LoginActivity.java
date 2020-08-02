@@ -2,7 +2,9 @@ package com.CP317.tutorloo.BoundaryClasses;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -49,6 +51,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 loginValidation();
+                finish();
                 return;
             }
         });
@@ -113,6 +116,15 @@ public class LoginActivity extends AppCompatActivity {
         if (pass_entered && email_entered) {
             boolean user_exists = db.checkStudent(email, password);
             if (user_exists == true) {
+                final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putBoolean("Registered", true);
+                editor.putString("Username", email);
+                editor.putString("Password", password);
+                editor.putBoolean("Student", true);
+
+                editor.apply();
+
                 Toast.makeText(getApplicationContext(), "Successfully login", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(LoginActivity.this, StudentActivity.class);
                 startActivity(intent);

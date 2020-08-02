@@ -1,9 +1,12 @@
 package com.CP317.tutorloo.BoundaryClasses;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -16,7 +19,6 @@ import com.CP317.tutorloo.R;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.regex.Pattern;
-import android.util.Patterns;
 
 public class TutorRegisterActivity extends AppCompatActivity {
 
@@ -62,6 +64,16 @@ public class TutorRegisterActivity extends AppCompatActivity {
         });
     }
 
+    //Hides keyboard when clicking off edit text box
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        if (getCurrentFocus() != null) {
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+        }
+        return super.dispatchTouchEvent(ev);
+    }
+    
     //-----------Validate email and password-------------
     public void SetValidation() {
         //set inputs to strings
