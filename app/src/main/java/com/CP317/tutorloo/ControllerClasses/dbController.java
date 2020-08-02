@@ -70,7 +70,6 @@ public class dbController {
             return true;
         }
 
-
     }
     public Cursor getTestData() {
         try {

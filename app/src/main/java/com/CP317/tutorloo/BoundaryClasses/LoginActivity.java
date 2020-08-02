@@ -40,7 +40,6 @@ public class LoginActivity extends AppCompatActivity {
         mInfo = (ImageButton) findViewById(R.id.HelpButton);
         mReset = (Button) findViewById(R.id.resetpass);
 
-
         mEmail = (EditText) findViewById(R.id.Email_input);
         mPassword = (EditText) findViewById(R.id.password_input);
 

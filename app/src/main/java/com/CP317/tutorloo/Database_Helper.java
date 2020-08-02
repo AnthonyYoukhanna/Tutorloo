@@ -31,7 +31,6 @@ public class Database_Helper extends SQLiteOpenHelper {
     public static final String col_6 = "Encrypt_Pass";
 
 
-
     public Database_Helper(@Nullable Context context) {
         super(context, DATABASE_NAME, null , 1);
     }
@@ -45,10 +44,6 @@ public class Database_Helper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("CREATE TABLE "+ Table_Name_user_program+" (Program_id SMALLINT,Tutor_id SMALLINT) ");
         sqLiteDatabase.execSQL("CREATE TABLE "+ Table_Name_courses+" (Course_id SMALLINT,Name VARCHAR) ");
         sqLiteDatabase.execSQL("CREATE TABLE "+ Table_Name_programs+" (Program_id SMALLINT,Name VARCHAR) ");
-
-
-
-
     }
 
     @Override
@@ -77,9 +72,29 @@ public class Database_Helper extends SQLiteOpenHelper {
         } else {
             return true;
         }
-
-
     }
+
+    //Returns an array containing all the matches (BY NAME)
+    public int[] findTutorsByName(String firstname)
+    {
+        int matches[]= {0};
+        return matches;
+    }
+
+    //Returns an array containing all the matches (BY COURSE)
+    public int[] findTutorsByCourse(String course)
+    {
+        int matches[]= {0};
+        return matches;
+    }
+
+    //Returns an array containing all the matches (BY NAME)
+    public int[] findTutorsByProgram(String course)
+    {
+        int matches[]= {0};
+        return matches;
+    }
+
     //checking if user exists
     public boolean checkStudent(String email, String password) {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -96,4 +111,6 @@ public class Database_Helper extends SQLiteOpenHelper {
 
         return exists;
     }
+
+    //
 }
