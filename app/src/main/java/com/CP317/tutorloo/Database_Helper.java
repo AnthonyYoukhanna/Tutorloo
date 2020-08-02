@@ -96,9 +96,60 @@ public class Database_Helper extends SQLiteOpenHelper {
     //Finds the tutor id based on the criteria given
     public int[] findTutors(String[] criteriaArray)
     {
-        int[] tutorIDs = {0};
+        SQLiteDatabase db = this.getReadableDatabase();
+        //Can only store 100 tutors
+        int[] tutorIDs = new int[100];
+
+        //Depending on how the array is filled, there will be 7 SQL statements
+        //Each SQL statement searches the database and returns tutorIDs
+        //Note: !criteraArray[i] MAY NOT WORK TO CHECK IF IT IS NULL
+        //      may have to fill the array with zeros in Student Activity and
+        //      check if it is non zero here.
+
+        //IF WE ARE ONLY SEARCHING BY TUTOR NAME
+        if(!criteriaArray[0].isEmpty() && criteriaArray[1].isEmpty() && criteriaArray[2].isEmpty())
+        {
+
+        }
+
+        //IF WE ARE ONLY SEARCHING BY COURSE
+        else if(criteriaArray[0].isEmpty() && !criteriaArray[1].isEmpty() && criteriaArray[2].isEmpty())
+        {
+
+        }
+
+        //IF WE ARE ONLY SEARCHING BY TUTOR PROGRAM
+        else if(criteriaArray[0].isEmpty() && criteriaArray[1].isEmpty() && !criteriaArray[2].isEmpty())
+        {
+
+        }
+
+        //IF WE ARE ONLY SEARCHING BY TUTOR NAME & COURSE
+        else if(!criteriaArray[0].isEmpty() && !criteriaArray[1].isEmpty() && criteriaArray[2].isEmpty())
+        {
+
+        }
+
+        //IF WE ARE ONLY SEARCHING BY TUTOR NAME & PROGRAM
+        else if(!criteriaArray[0].isEmpty() && criteriaArray[1].isEmpty() && !criteriaArray[2].isEmpty())
+        {
+
+        }
+
+        //IF WE ARE ONLY SEARCHING BY COURSE AND PROGRAM
+        else if(criteriaArray[0].isEmpty() && !criteriaArray[1].isEmpty() && !criteriaArray[2].isEmpty())
+        {
+
+        }
+
+        //IF WE ARE ONLY SEARCHING BY ALL CRITERIA
+        else if(!criteriaArray[0].isEmpty() && !criteriaArray[1].isEmpty() && !criteriaArray[2].isEmpty())
+        {
+
+        }
 
         return tutorIDs;
+
 
     }
 

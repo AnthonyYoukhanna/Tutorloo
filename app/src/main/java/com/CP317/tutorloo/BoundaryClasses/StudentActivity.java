@@ -120,12 +120,12 @@ public class StudentActivity extends AppCompatActivity implements PopupMenu.OnMe
         //Array that will store all of the criteria
         String[] criteriaArray= new String[3];
 
-        //Get the Strings inside the textboxes
+        //Get the Strings inside the text-boxes
         final String name = mName.getText().toString();
         final String course = mCourse.getText().toString();
         final String program = mProgram.getText().toString();
 
-        //Add the strings to the correcponding array index
+        //Add the strings to the corresponding array index
         if (!name.isEmpty())
             criteriaArray[0]=name;
         if(!course.isEmpty())
