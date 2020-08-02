@@ -75,6 +75,7 @@ public class Database_Helper extends SQLiteOpenHelper {
     }
 
     //Returns an array containing all the matches (BY NAME)
+    //Uses Student Activity
     public int[] findTutorsByName(String firstname)
     {
         int matches[]= {0};
@@ -112,5 +113,4 @@ public class Database_Helper extends SQLiteOpenHelper {
         return exists;
     }
 
-    //
 }

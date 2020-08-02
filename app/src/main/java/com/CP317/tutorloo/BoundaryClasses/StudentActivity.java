@@ -78,4 +78,13 @@ public class StudentActivity extends AppCompatActivity implements PopupMenu.OnMe
                 return false;
         }
     }
+
+    //Add function here --
+    //Create searchByName textbox attribute
+    //create searchByCourse textbox attrbiute
+    //Create searchByProgram textbox attribute
+    //Create searchButton button
+    //When button is clicked you, must go tot the next view
+
+
 }
