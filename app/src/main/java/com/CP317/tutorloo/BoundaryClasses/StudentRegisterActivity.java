@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.CP317.tutorloo.ControllerClasses.dbController;
@@ -16,6 +17,8 @@ import com.CP317.tutorloo.R;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import android.util.Patterns;
+import java.util.regex.Pattern;
 
 public class StudentRegisterActivity extends AppCompatActivity {
 
@@ -29,7 +32,14 @@ public class StudentRegisterActivity extends AppCompatActivity {
     private EditText mDOB;
     private EditText mConPass;
 
-
+    private static final Pattern PASSWORD_PATTERN =
+            Pattern.compile("^" +
+                    "(?=.*[0-9])" +
+                    "(?=.*[a-zA-Z])" +      //any letter
+                    "(?=.*[@#$%^&+=])" +    //at least 1 special character
+                    "(?=\\S+$)" +           //no white spaces
+                    ".{4,}" +               //at least 4 characters
+                    "$");
 
     @Override
     protected  void onCreate(Bundle savedInstanceState) {
@@ -48,7 +58,6 @@ public class StudentRegisterActivity extends AppCompatActivity {
         AddData();
 
 
-
         mPrevious.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent(StudentRegisterActivity.this, RegisterActivity.class);
@@ -63,43 +72,101 @@ public class StudentRegisterActivity extends AppCompatActivity {
     public void AddData(){
         mSubmit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-
-                String password = mPassword.getText().toString();
-                String conPassword = mPassword.getText().toString();
-
-
-                String stringDOB = mDOB.getText().toString();
-                SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
-
-                java.util.Date DOB = new java.util.Date();
-                try {
-                    DOB = format.parse(stringDOB);
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-
-                final String email = mEmail.getText().toString();
-                final String first = mFirst.getText().toString();
-                final String last = mLast.getText().toString();
-                final String pass = mPassword.getText().toString();
-                final java.sql.Date finalDOB = new java.sql.Date(DOB.getTime());
-                boolean insert = db.insertStudent(first,last,email,pass, finalDOB);
-                if (insert == true){
-                    Toast.makeText(StudentRegisterActivity.this, "Successfully Created", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(StudentRegisterActivity.this, StudentActivity.class);
-                    startActivity(intent);
-                    finish();
-                    return;
-                }
-//                if (password == conPassword){
-//
-//                }
-//                else{
-//                    Toast.makeText(StudentRegisterActivity.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
-//                }
-
+                //Validate input
+                SetValidation();
             }
         });
+
+    }
+
+    //-----------Validate email and password-------------
+    public void SetValidation() {
+        //set inputs to strings
+        String email = mEmail.getText().toString();
+        String firstname = mFirst.getText().toString();
+        String lastname = mLast.getText().toString();
+        String password = mPassword.getText().toString();
+        String conPassword = mConPass.getText().toString();
+        boolean isfirstnamevalid;
+        boolean islastnamevalid;
+        boolean isEmailValid;
+        boolean isPasswordValid;
+        boolean isdobValid;
+
+        //validate date of birth
+        String stringDOB = mDOB.getText().toString();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+
+        java.util.Date DOB = new java.util.Date();
+        try {
+            DOB = format.parse(stringDOB);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        final java.sql.Date finalDOB = new java.sql.Date(DOB.getTime());
+
+        //Check for valid date of birth
+        if (stringDOB.isEmpty()) {
+            mDOB.setError("Field can't be empty");
+            isdobValid = false;
+        }
+        else {
+            isdobValid = true;
+        }
+        // Check for a valid first name
+        if (firstname.isEmpty()) {
+            mFirst.setError("Field can't be empty");
+            isfirstnamevalid = false;
+        } else  {
+            isfirstnamevalid = true;
+        }
+
+        // Check for a valid last name
+        if (lastname.isEmpty()) {
+            mLast.setError("Field can't be empty");
+            islastnamevalid = false;
+        } else  {
+            islastnamevalid = true;
+        }
+
+        // Check for a valid email address.
+        if (email.isEmpty()) {
+            mEmail.setError("Field can't be empty");
+            isEmailValid = false;
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            mEmail.setError("Please enter a valid email address");
+            isEmailValid = false;
+        } else  {
+            isEmailValid = true;
+        }
+
+
+        // Check for a valid password.
+        if (password.isEmpty()) {
+            mPassword.setError("Field can't be empty");
+            isPasswordValid = false;
+        } else if (!PASSWORD_PATTERN.matcher(password).matches()) {
+            mPassword.setError("Must contain at least 4 characters, any letter, and any speical character");
+            isPasswordValid = false;
+        } else if(!conPassword.equals(password)) {
+            mConPass.setError("Passwords do not match");
+            isPasswordValid = false;
+        } else  {
+            isPasswordValid = true;
+        }
+
+        if (isfirstnamevalid && isEmailValid && islastnamevalid && isPasswordValid && isdobValid) {
+            //-----------------Check if user was inserted in the database------------
+            boolean insert = db.insertStudent(firstname,lastname,email,password, finalDOB);
+            if (insert == true){
+                Toast.makeText(StudentRegisterActivity.this, "Successfully Created", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(StudentRegisterActivity.this, StudentActivity.class);
+                startActivity(intent);
+                finish();
+                return;
+            }
+        }
 
     }
 }

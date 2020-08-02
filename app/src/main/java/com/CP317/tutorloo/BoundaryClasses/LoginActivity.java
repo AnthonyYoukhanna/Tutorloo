@@ -44,6 +44,8 @@ public class LoginActivity extends AppCompatActivity {
         mEmail = (EditText) findViewById(R.id.Email_input);
         mPassword = (EditText) findViewById(R.id.password_input);
 
+
+        //--------------Login Validation---------------------
         mLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
