@@ -115,6 +115,7 @@ public class LoginActivity extends AppCompatActivity {
 
         if (pass_entered && email_entered) {
             boolean user_exists = db.checkStudent(email, password);
+            boolean tutor_exists = db.checkTutor(email,password);
             if (user_exists == true) {
                 final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
                 SharedPreferences.Editor editor = sharedPref.edit();
@@ -129,6 +130,22 @@ public class LoginActivity extends AppCompatActivity {
                 Intent intent = new Intent(LoginActivity.this, StudentActivity.class);
                 startActivity(intent);
                 finish();
+            }
+            else if (tutor_exists){
+                final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putBoolean("Registered", true);
+                editor.putString("Username", email);
+                editor.putString("Password", password);
+                editor.putBoolean("Student", false);
+
+                editor.apply();
+
+                Toast.makeText(getApplicationContext(), "Successfully login", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(LoginActivity.this, TutorActivity.class);
+                startActivity(intent);
+                finish();
+
             }
             else {
                 Toast.makeText(getApplicationContext(), "User not found", Toast.LENGTH_LONG).show();

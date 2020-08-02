@@ -73,11 +73,47 @@ public class Database_Helper extends SQLiteOpenHelper {
             return true;
         }
     }
+    public boolean insertTutor(String firstName, String lastName, String email, String password, Date dateOfBirth) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("First_Name", firstName);
+        contentValues.put("Last_Name", lastName);
+        contentValues.put("Email", email);
+        contentValues.put("Date_of_Birth", String.valueOf(dateOfBirth));
+
+
+        //Password encryption goes here? also student id gen
+        contentValues.put("Encrypt_Pass", password);
+        long result = db.insert("tutor", null, contentValues);
+        if (result == 1) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 
     //checking if user exists
     public boolean checkStudent(String email, String password) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("Select * from Student where Email=? and Encrypt_Pass=?", new String[]{email, password});
+        int count = cursor.getCount();
+
+        boolean exists;
+        if (count > 0) {
+            exists  = true;
+        }
+        else {
+            exists = false;
+        }
+
+        return exists;
+    }
+
+    //checking if tutor exists
+    public boolean checkTutor(String email, String password) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("Select * from tutor where Email=? and Encrypt_Pass=?", new String[]{email, password});
         int count = cursor.getCount();
 
         boolean exists;

@@ -2,7 +2,9 @@ package com.CP317.tutorloo.BoundaryClasses;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Patterns;
 import android.view.MotionEvent;
 import android.view.View;
@@ -14,6 +16,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.CP317.tutorloo.Database_Helper;
 import com.CP317.tutorloo.R;
 
 import java.text.ParseException;
@@ -22,6 +25,7 @@ import java.util.regex.Pattern;
 
 public class TutorRegisterActivity extends AppCompatActivity {
 
+    Database_Helper db;
     private ImageButton mPrevious;
     private Button mContinue;
     private EditText mEmail, mFirst, mLast, mPassword, mDOB, mConPass;
@@ -30,7 +34,7 @@ public class TutorRegisterActivity extends AppCompatActivity {
             Pattern.compile("^" +
                     "(?=.*[0-9])" +
                     "(?=.*[a-zA-Z])" +      //any letter
-                    "(?=.*[@#$%^&+=])" +    //at least 1 special character
+                    "(?=.*[@#$%^&+=_])" +    //at least 1 special character
                     "(?=\\S+$)" +           //no white spaces
                     ".{4,}" +               //at least 4 characters
                     "$");
@@ -38,6 +42,9 @@ public class TutorRegisterActivity extends AppCompatActivity {
     protected  void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutorregisterview);
+
+
+        db = new Database_Helper(this);
 
         mPrevious = (ImageButton) findViewById(R.id.RegisterPrevious);
         mContinue = (Button) findViewById(R.id.button3);
@@ -73,7 +80,7 @@ public class TutorRegisterActivity extends AppCompatActivity {
         }
         return super.dispatchTouchEvent(ev);
     }
-    
+
     //-----------Validate email and password-------------
     public void SetValidation() {
         //set inputs to strings
@@ -153,14 +160,25 @@ public class TutorRegisterActivity extends AppCompatActivity {
 
         if (isfirstnamevalid && isEmailValid && islastnamevalid && isPasswordValid && isdobValid) {
             //-----------------Check if user was inserted in the database------------
-            //boolean insert = db.insertStudent(firstname,lastname,email,password, finalDOB);
-            //if (insert == true){
+            boolean insert = db.insertTutor(firstname,lastname,email,password, finalDOB);
+            if (insert == true){
+
+                //Add email and username to shared preferences
+                final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putBoolean("Registered", true);
+                editor.putString("Username", email);
+                editor.putString("Password", password);
+                editor.putBoolean("Student", false);
+
+                editor.apply();
+
                 Toast.makeText(TutorRegisterActivity.this, "Successfully Created", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(TutorRegisterActivity.this, TutorInfoActivity.class);
                 startActivity(intent);
                 finish();
                 return;
-            //}
+            }
         }
 
     }
