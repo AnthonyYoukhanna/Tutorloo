@@ -74,28 +74,6 @@ public class Database_Helper extends SQLiteOpenHelper {
         }
     }
 
-    //Returns an array containing all the matches (BY NAME)
-    //Uses Student Activity
-    public int[] findTutorsByName(String firstname)
-    {
-        int matches[]= {0};
-        return matches;
-    }
-
-    //Returns an array containing all the matches (BY COURSE)
-    public int[] findTutorsByCourse(String course)
-    {
-        int matches[]= {0};
-        return matches;
-    }
-
-    //Returns an array containing all the matches (BY NAME)
-    public int[] findTutorsByProgram(String course)
-    {
-        int matches[]= {0};
-        return matches;
-    }
-
     //checking if user exists
     public boolean checkStudent(String email, String password) {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -111,6 +89,17 @@ public class Database_Helper extends SQLiteOpenHelper {
         }
 
         return exists;
+    }
+
+    //Input: String of criteria array from (StudentActivity)
+    //Output: Returns an array of tutorID's containing all of the matches
+    //Finds the tutor id based on the criteria given
+    public int[] findTutors(String[] criteriaArray)
+    {
+        int[] tutorIDs = {0};
+
+        return tutorIDs;
+
     }
 
 }

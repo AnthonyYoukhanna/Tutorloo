@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.PopupMenu;
 import android.widget.ImageButton;
 import android.view.View;
@@ -27,6 +29,7 @@ public class StudentActivity extends AppCompatActivity implements PopupMenu.OnMe
 
 
     private ImageButton mSearch;
+
     @Override
     protected  void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,12 +50,16 @@ public class StudentActivity extends AppCompatActivity implements PopupMenu.OnMe
 
         //Must be updated to show error message if search field is empty. - Regina
         mSearch.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
+
+                sendCriteria();
                 Intent intent = new Intent(StudentActivity.this, TutorListActivity.class);
                 startActivity(intent);
                 return;
             }
         });
+
     }
     public void showPopup(View v) {
         PopupMenu popup = new PopupMenu(this, v);
@@ -78,6 +85,18 @@ public class StudentActivity extends AppCompatActivity implements PopupMenu.OnMe
                 return false;
         }
     }
+
+    /*This method will send the criteria to the DB_Helper class
+      in the form on an array
+      array[0] = Name
+      array[1] = Course
+      array[2] = Program
+     */
+    public void sendCriteria()
+    {
+        //Take all the textboxes and put them in an array with 3 indexes
+    }
+
 
     //Add function here --
     //Create searchByName textbox attribute
