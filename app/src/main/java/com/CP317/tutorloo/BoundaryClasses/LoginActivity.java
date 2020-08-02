@@ -49,20 +49,7 @@ public class LoginActivity extends AppCompatActivity {
         mLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final String email = mEmail.getText().toString();
-                final String password = mPassword.getText().toString(); //Add auth through sqlite db
-
-                boolean user_exists = db.checkStudent(email, password);
-                if (user_exists == true) {
-                    Toast.makeText(getApplicationContext(), "Successfully login", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(LoginActivity.this, StudentActivity.class);
-                    startActivity(intent);
-                    finish();
-                }
-                else {
-                    Toast.makeText(getApplicationContext(), "User not found", Toast.LENGTH_LONG).show();
-                }
-
+                loginValidation();
                 return;
             }
         });
@@ -97,6 +84,45 @@ public class LoginActivity extends AppCompatActivity {
                 return;
             }
         });
+
+    }
+
+    //Login validation
+    public void loginValidation() {
+        final String email = mEmail.getText().toString();
+        final String password = mPassword.getText().toString(); //Add auth through sqlite db
+
+        //Login validation
+        boolean email_entered;
+        boolean pass_entered;
+        if (email.isEmpty()) {
+            mEmail.setError("Please enter an email address");
+            email_entered = false;
+        }
+        else {
+            email_entered = true;
+        }
+
+        if (password.isEmpty()) {
+            mPassword.setError("Please enter your password");
+            pass_entered = false;
+        }
+        else {
+            pass_entered = true;
+        }
+
+        if (pass_entered && email_entered) {
+            boolean user_exists = db.checkStudent(email, password);
+            if (user_exists == true) {
+                Toast.makeText(getApplicationContext(), "Successfully login", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(LoginActivity.this, StudentActivity.class);
+                startActivity(intent);
+                finish();
+            }
+            else {
+                Toast.makeText(getApplicationContext(), "User not found", Toast.LENGTH_LONG).show();
+            }
+        }
 
     }
 
