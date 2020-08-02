@@ -148,11 +148,13 @@ public class Database_Helper extends SQLiteOpenHelper {
         }
 
         //iterate through cursor and put all results into the tutorIDs array
-        int count = cursor.getCount();
+        int i=0;
 
-        for (int i = 0; i < count; i++)
+        while (cursor.moveToNext())
         {
-            //tutorID[i] = 
+            //This hypothetically should work, change it if needed
+            tutorIDs[i] = Integer.parseInt(cursor.getString(i));
+            i++;
         }
 
         return tutorIDs;
