@@ -10,10 +10,12 @@ import android.widget.EditText;
 import android.widget.PopupMenu;
 import android.widget.ImageButton;
 import android.view.View;
+import android.widget.Toast;
 
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.CP317.tutorloo.Database_Helper;
 import com.CP317.tutorloo.R;
 
 public class StudentActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
@@ -27,8 +29,12 @@ public class StudentActivity extends AppCompatActivity implements PopupMenu.OnMe
             "Computer Science", "BBA & CS", "Psychology & CS", "Math and CS"
     };
 
-
     private ImageButton mSearch;
+    private AutoCompleteTextView mName;
+    private AutoCompleteTextView mCourse;
+    private AutoCompleteTextView mProgram;
+    Database_Helper db;
+
 
     @Override
     protected  void onCreate(Bundle savedInstanceState) {
@@ -48,12 +54,23 @@ public class StudentActivity extends AppCompatActivity implements PopupMenu.OnMe
         //Search button functionality
         mSearch = (ImageButton) findViewById(R.id.searchButton);
 
+        //Search boxes functionality
+        mName = (AutoCompleteTextView) findViewById(R.id.searchByName);
+        mCourse = (AutoCompleteTextView) findViewById(R.id.searchByCourse);
+        mProgram = (AutoCompleteTextView) findViewById(R.id.searchByProgram);
+
+        //The database
+        db = new Database_Helper(this);
+
         //Must be updated to show error message if search field is empty. - Regina
         mSearch.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view)
             {
-
+                //Once the search button has been clicked, send all the criteria to the database
                 sendCriteria();
+
+                //
+
                 Intent intent = new Intent(StudentActivity.this, TutorListActivity.class);
                 startActivity(intent);
                 return;
@@ -91,19 +108,48 @@ public class StudentActivity extends AppCompatActivity implements PopupMenu.OnMe
       array[0] = Name
       array[1] = Course
       array[2] = Program
+
+      Note:
+      CURRENTLY, WE ARE ONLY DISPLAYING WHETHER OR NOT THE MATCHES HAVE BEEN FOUND OR NOT - Divya
+      A MESSAGE SIMPLY POPS UP
+      THE FUNCTIONALITY WILL BE ADDED LATER
+
      */
     public void sendCriteria()
     {
-        //Take all the textboxes and put them in an array with 3 indexes
+        //Array that will store all of the criteria
+        String[] criteriaArray= new String[3];
+
+        //Get the Strings inside the textboxes
+        final String name = mName.getText().toString();
+        final String course = mCourse.getText().toString();
+        final String program = mProgram.getText().toString();
+
+        //Add the strings to the correcponding array index
+        if (!name.isEmpty())
+            criteriaArray[0]=name;
+        if(!course.isEmpty())
+            criteriaArray[1]= course;
+        if(!program.isEmpty())
+            criteriaArray[2]= course;
+
+        //Get the database in here and send the criteria by doing db.findTutors(criteriaArray)
+        int[] tutorIds= db.findTutors(criteriaArray);
+
+        //If the array is not empty
+        if(tutorIds.length !=0)
+        {
+            //Display to user that matches have been found and change view to TutorList Activity
+            Toast.makeText(getApplicationContext(), "Matches Found", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(StudentActivity.this, TutorListActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
+        //If it is empty (return No tutors found)
+        else{
+            Toast.makeText(getApplicationContext(), "No Matches Found", Toast.LENGTH_LONG).show();
+        }
     }
-
-
-    //Add function here --
-    //Create searchByName textbox attribute
-    //create searchByCourse textbox attrbiute
-    //Create searchByProgram textbox attribute
-    //Create searchButton button
-    //When button is clicked you, must go tot the next view
-
 
 }
