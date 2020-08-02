@@ -94,8 +94,7 @@ public class Database_Helper extends SQLiteOpenHelper {
     //Input: String of criteria array from (StudentActivity)
     //Output: Returns an array of tutorID's containing all of the matches
     //Finds the tutor id based on the criteria given
-    public int[] findTutors(String[] criteriaArray)
-    {
+    public int[] findTutors(String[] criteriaArray) {
         SQLiteDatabase db = this.getReadableDatabase();
         //Can only store 100 tutors
         int[] tutorIDs = new int[100];
@@ -110,47 +109,50 @@ public class Database_Helper extends SQLiteOpenHelper {
         String course = criteriaArray[1];
         String program = criteriaArray[2];
 
+        Cursor cursor = null;
+
         //IF WE ARE ONLY SEARCHING BY TUTOR NAME
-        if(!name.isEmpty() && course.isEmpty() && program.isEmpty())
-        {
-            Cursor cursor = db.rawQuery("Select tutor_id from tutor where Name=?", new String[]{name});
+        if (!name.isEmpty() && course.isEmpty() && program.isEmpty()) {
+            cursor = db.rawQuery("Select tutor_id from tutor where Name=?", new String[]{name});
             //I think we have to iterate through cursor and add the entries (tutorIDs) to an array
         }
 
         //IF WE ARE ONLY SEARCHING BY COURSE
-        else if(name.isEmpty() && !course.isEmpty() && program.isEmpty())
-        {
-            Cursor cursor = db.rawQuery("Select tutor_id from tutor where Course=?", new String[]{course});
+        else if (name.isEmpty() && !course.isEmpty() && program.isEmpty()) {
+            cursor = db.rawQuery("Select tutor_id from tutor where Course=?", new String[]{course});
         }
 
         //IF WE ARE ONLY SEARCHING BY TUTOR PROGRAM
-        else if(name.isEmpty() && course.isEmpty() && !program.isEmpty())
-        {
-            Cursor cursor = db.rawQuery("Select tutor_id from tutor where Program=? and Course=?", new String[]{program});
+        else if (name.isEmpty() && course.isEmpty() && !program.isEmpty()) {
+            cursor = db.rawQuery("Select tutor_id from tutor where Program=? and Course=?", new String[]{program});
         }
 
         //IF WE ARE ONLY SEARCHING BY TUTOR NAME & COURSE
-        else if(!name.isEmpty() && !course.isEmpty() && program.isEmpty())
-        {
-            Cursor cursor = db.rawQuery("Select tutor_id from tutor where Name=? and Course=?", new String[]{name,course});
+        else if (!name.isEmpty() && !course.isEmpty() && program.isEmpty()) {
+            cursor = db.rawQuery("Select tutor_id from tutor where Name=? and Course=?", new String[]{name, course});
         }
 
         //IF WE ARE ONLY SEARCHING BY TUTOR NAME & PROGRAM
-        else if(!name.isEmpty() && course.isEmpty() && !program.isEmpty())
-        {
-            Cursor cursor = db.rawQuery("Select tutor_id from tutor where Name=? and Program=?", new String[]{name,program});
+        else if (!name.isEmpty() && course.isEmpty() && !program.isEmpty()) {
+            cursor = db.rawQuery("Select tutor_id from tutor where Name=? and Program=?", new String[]{name, program});
         }
 
         //IF WE ARE ONLY SEARCHING BY COURSE AND PROGRAM
-        else if(name.isEmpty() && !course.isEmpty() && !program.isEmpty())
-        {
-            Cursor cursor = db.rawQuery("Select tutor_id from tutor where Course=? and Program=?", new String[]{course,program});
+        else if (name.isEmpty() && !course.isEmpty() && !program.isEmpty()) {
+            cursor = db.rawQuery("Select tutor_id from tutor where Course=? and Program=?", new String[]{course, program});
         }
 
         //IF WE ARE ONLY SEARCHING BY ALL CRITERIA
-        else if(!name.isEmpty() && !course.isEmpty() && !program.isEmpty())
+        else if (!name.isEmpty() && !course.isEmpty() && !program.isEmpty()) {
+            cursor = db.rawQuery("Select tutor_id from tutor where Name= ? and Course=? and Program=?", new String[]{name, course, program});
+        }
+
+        //iterate through cursor and put all results into the tutorIDs array
+        int count = cursor.getCount();
+
+        for (int i = 0; i < count; i++)
         {
-            Cursor cursor = db.rawQuery("Select tutor_id from tutor where Name= ? and Course=? and Program=?", new String[]{name, course,program});
+            //tutorID[i] = 
         }
 
         return tutorIDs;
