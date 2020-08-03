@@ -132,7 +132,7 @@ public class LoginActivity extends AppCompatActivity {
                 finish();
             }
             else if (tutor_exists){
-                final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+                SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
                 SharedPreferences.Editor editor = sharedPref.edit();
                 editor.putBoolean("Registered", true);
                 editor.putString("Username", email);
