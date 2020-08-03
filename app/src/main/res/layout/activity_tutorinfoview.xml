@@ -85,7 +85,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName4"
+        android:id="@+id/Bio"
         android:layout_width="263dp"
         android:layout_height="44dp"
         android:ems="10"
@@ -127,7 +127,7 @@
         android:textColor="#686868"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4"
+        app:layout_constraintTop_toBottomOf="@+id/Bio"
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
