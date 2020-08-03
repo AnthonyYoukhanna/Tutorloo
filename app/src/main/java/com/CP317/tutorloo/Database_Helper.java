@@ -121,6 +121,7 @@ public class Database_Helper extends SQLiteOpenHelper {
         int count = cursor.getCount();
 
         boolean exists;
+
         if (count > 0) {
             exists  = true;
         }
@@ -161,6 +162,7 @@ public class Database_Helper extends SQLiteOpenHelper {
         //IF WE ARE ONLY SEARCHING BY COURSE
         else if (name == null && course != null && program == null)
         {
+            //Complete a JOIN between the User_Courses table and the tutor table
             cursor = db.rawQuery("Select Tutor_id from tutor where Course=?", new String[]{course});
         }
 

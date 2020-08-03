@@ -33,6 +33,7 @@ public class TutorListActivity extends AppCompatActivity implements PopupMenu.On
             case R.id.profile:
                 Intent intent = new Intent(TutorListActivity.this, StudentProfileActivity.class);
                 startActivity(intent);
+
                 return true;
             case R.id.logout:
                 //Needs to be updated
@@ -42,5 +43,17 @@ public class TutorListActivity extends AppCompatActivity implements PopupMenu.On
             default:
                 return false;
         }
+    }
+
+    public void getTutorInfo()
+    {
+        //Get the tutorID array
+        int[] array = StudentActivity.getTutorID();
+
+        //SQL statements
+        // Grab all data from the database
+
+        //Someway to populate the UI
+
     }
 }

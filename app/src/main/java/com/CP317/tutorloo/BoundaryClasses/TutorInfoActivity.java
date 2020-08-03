@@ -27,7 +27,6 @@ public class TutorInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutorinfoview);
 
-
         mPrevious = (ImageButton) findViewById(R.id.previous5);
         mSave = (Button) findViewById(R.id.button2);
         mYearofStudy = (EditText) findViewById(R.id.yearofstudy);
@@ -126,13 +125,6 @@ public class TutorInfoActivity extends AppCompatActivity {
                 finish();
 
             }
-
-
-
-
         }
-
-
-
     }
 }
