@@ -169,7 +169,7 @@ public class TutorRegisterActivity extends AppCompatActivity {
             if (insert == true){
 
                 //Add email and username to shared preferences
-                final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+                 SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
                 SharedPreferences.Editor editor = sharedPref.edit();
                 editor.putBoolean("Registered", true);
                 editor.putString("Username", email);

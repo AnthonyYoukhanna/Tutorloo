@@ -1,7 +1,9 @@
 package com.CP317.tutorloo.BoundaryClasses;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.PopupMenu;
@@ -34,6 +36,11 @@ public class TutorActivity extends AppCompatActivity implements PopupMenu.OnMenu
                 startActivity(intent);
                 return true;
             case R.id.logout:
+                 SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+                 SharedPreferences.Editor editor = sharedPref.edit();
+                 editor.putBoolean("Registered", true);
+                editor.apply();
+
                 Intent intent2 = new Intent(TutorActivity.this, LoginActivity.class);
                 startActivity(intent2);
                 return true;

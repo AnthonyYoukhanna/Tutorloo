@@ -1,17 +1,16 @@
 package com.CP317.tutorloo.BoundaryClasses;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.PopupMenu;
 import android.widget.ImageButton;
-import android.view.View;
+import android.widget.PopupMenu;
 import android.widget.Toast;
-
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -95,6 +94,11 @@ public class StudentActivity extends AppCompatActivity implements PopupMenu.OnMe
                 return true;
             case R.id.logout:
                 //Needs to be updated
+                final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putBoolean("Registered", false);
+                editor.apply();
+
                 Intent intent2 = new Intent(StudentActivity.this, LoginActivity.class);
                 startActivity(intent2);
                 return true;
