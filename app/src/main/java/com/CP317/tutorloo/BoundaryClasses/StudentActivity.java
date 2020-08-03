@@ -108,6 +108,12 @@ public class StudentActivity extends AppCompatActivity implements PopupMenu.OnMe
         }
     }
 
+    public static int[] getTutorID()
+    {
+        return tutorID;
+    }
+
+
     /*This method will send the criteria to the DB_Helper class
       in the form on an array
       array[0] = Name
@@ -157,9 +163,5 @@ public class StudentActivity extends AppCompatActivity implements PopupMenu.OnMe
         }
     }
 
-    public static int[] getTutorID()
-    {
-        return tutorID;
-    }
 
 }
