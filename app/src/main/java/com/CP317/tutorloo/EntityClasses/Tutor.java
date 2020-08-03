@@ -2,18 +2,18 @@ package com.CP317.tutorloo.EntityClasses;
 
 public class Tutor extends User {
 
-    private double hourlyRate;
+    private int hourlyRate;
     private String course;
     private String program;
     private int year_of_study;
     private String biography;
 
     //-----------hourly rate accessor and mutator---------
-    public void setHourlyRate(double hourlyRate) {
+    public void setHourlyRate(int hourlyRate) {
         this.hourlyRate = hourlyRate;
     }
 
-    public double getHourlyRate() {
+    public int getHourlyRate() {
         return this.hourlyRate;
     }
     //--------------------------------------------------

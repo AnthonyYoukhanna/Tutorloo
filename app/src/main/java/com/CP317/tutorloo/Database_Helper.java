@@ -6,10 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-
 import androidx.annotation.Nullable;
-
-import java.sql.Date;
 import com.CP317.tutorloo.EntityClasses.Student;
 import com.CP317.tutorloo.EntityClasses.Tutor;
 
@@ -26,14 +23,6 @@ public class Database_Helper extends SQLiteOpenHelper {
     public static final String Table_Name_programs = "programs";
 
 
-    public static final String col_1 = "Student_id";
-    public static final String col_2 = "Last_Name";
-    public static final String col_3 = "First_Name";
-    public static final String col_4 = "Date_Of_Birth";
-    public static final String col_5 = "Email";
-    public static final String col_6 = "Encrypt_Pass";
-
-
     public Database_Helper(@Nullable Context context) {
         super(context, DATABASE_NAME, null , 1);
     }
@@ -41,10 +30,10 @@ public class Database_Helper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL("CREATE TABLE "+ Table_Name_Student+" (Student_id INTEGER,Last_Name VARCHAR,First_Name VARCHAR,Date_Of_Birth DATE,Email STRING,Encrypt_Pass VARCHAR) ");
-        sqLiteDatabase.execSQL("CREATE TABLE "+ Table_Name_tutor+" (Tutor_id INTEGER PRIMARY KEY AUTOINCREMENT,Last_Name VARCHAR,First_Name VARCHAR,Date_Of_Birth DATE,Email STRING,Encrypt_Pass VARCHAR,Biography LONGTEXT,Year_Of_Study INTEGER,Hourly_Fee INTEGER,Rating INTEGER) ");
-        sqLiteDatabase.execSQL("CREATE TABLE "+ Table_Name_user_course+" (Course_id SMALLINT,Tutor_id SMALLINT) ");
-        sqLiteDatabase.execSQL("CREATE TABLE "+ Table_Name_user_photo+" (Photo_id SMALLINT,Tutor_id SMALLINT,Link TEXT, Time_Added TIMESTAMP, Active BOOLEAN) ");
-        sqLiteDatabase.execSQL("CREATE TABLE "+ Table_Name_user_program+" (Program_id SMALLINT,Tutor_id SMALLINT) ");
+        sqLiteDatabase.execSQL("CREATE TABLE "+ Table_Name_tutor+" (Tutor_id INTEGER PRIMARY KEY AUTOINCREMENT,Last_Name VARCHAR,First_Name VARCHAR,Date_Of_Birth DATE,Email STRING,Encrypt_Pass VARCHAR,Biography LONGTEXT,Year_Of_Study INTEGER,Hourly_Fee INTEGER,Rating INTEGER, Course VARCHAR, Program VARCHAR) ");
+//        sqLiteDatabase.execSQL("CREATE TABLE "+ Table_Name_user_course+" (Course_id SMALLINT,Tutor_id SMALLINT) ");
+//        sqLiteDatabase.execSQL("CREATE TABLE "+ Table_Name_user_photo+" (Photo_id SMALLINT,Tutor_id SMALLINT,Link TEXT, Time_Added TIMESTAMP, Active BOOLEAN) ");
+//        sqLiteDatabase.execSQL("CREATE TABLE "+ Table_Name_user_program+" (Program_id SMALLINT,Tutor_id SMALLINT) ");
         sqLiteDatabase.execSQL("CREATE TABLE "+ Table_Name_courses+" (Course_id SMALLINT,Name VARCHAR) ");
         sqLiteDatabase.execSQL("CREATE TABLE "+ Table_Name_programs+" (Program_id SMALLINT,Name VARCHAR) ");
     }
@@ -81,10 +70,22 @@ public class Database_Helper extends SQLiteOpenHelper {
         contentValues.put("Last_Name", tutor.getlastName());
         contentValues.put("Email", tutor.getEmail());
         contentValues.put("Date_of_Birth", String.valueOf(tutor.getdob()));
-
-
-        //Password encryption goes here? also student id gen
         contentValues.put("Encrypt_Pass", tutor.getPassword());
+        long result = db.insert("tutor", null, contentValues);
+        if (result == 1) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public boolean insertTutorInfo(Tutor tutor) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("Course", tutor.getCourse());
+        contentValues.put("Program", tutor.getProgram());
+
         long result = db.insert("tutor", null, contentValues);
         if (result == 1) {
             return false;
@@ -126,6 +127,7 @@ public class Database_Helper extends SQLiteOpenHelper {
 
         return exists;
     }
+
 
     //Input: String of criteria array from (StudentActivity)
     //Output: Returns an array of tutorID's containing all of the matches

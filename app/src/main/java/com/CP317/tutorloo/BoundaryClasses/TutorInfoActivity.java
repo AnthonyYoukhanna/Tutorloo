@@ -1,14 +1,19 @@
 package com.CP317.tutorloo.BoundaryClasses;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.CP317.tutorloo.Database_Helper;
+import com.CP317.tutorloo.EntityClasses.Tutor;
 import com.CP317.tutorloo.R;
 
 public class TutorInfoActivity extends AppCompatActivity {
@@ -42,18 +47,18 @@ public class TutorInfoActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(TutorInfoActivity.this, TutorActivity.class);
                 startActivity(intent);
-                //infoValidation();
+                infoValidation();
                 return;
             }
         });
     }
 
     //validate information
-    /*public void infoValidation() {
+    public void infoValidation() {
         String program = mProgram.getText().toString();
         String course = mCourse.getText().toString();
         int yearofstudy = Integer.parseInt(String.valueOf(mYearofStudy.getText()));
-        double hourlyfee = Double.parseDouble(String.valueOf(mHourlyfee.getText()));
+        int hourlyfee = Integer.parseInt(String.valueOf(mHourlyfee.getText()));
         boolean p_entered, c_entered, y_entered, h_entered;
 
         //Check to see if the program was entered
@@ -70,12 +75,6 @@ public class TutorInfoActivity extends AppCompatActivity {
             mCourse.setError("Field cannot be empty");
             c_entered = false;
         }
-
-        if(course.contains(","))       //User can only enter 1 course
-        {
-            mCourse.setError("Enter 1 course");
-            c_entered = false;
-        }
         else {
             c_entered = true;
         }
@@ -83,19 +82,36 @@ public class TutorInfoActivity extends AppCompatActivity {
         //Check to see if the year of study is empty
         if (mYearofStudy.getText().toString().isEmpty()){
             mYearofStudy.setError("Field cannot be empty");
+            y_entered = false;
         }
-        y_entered = true;
+        else {
+            y_entered = true;
+        }
+
 
         //Check to see if the hourly fee has been entered
         if(mHourlyfee.getText().toString().isEmpty()){
             mHourlyfee.setError("Field cannot be empty");
-            h_entered = false;}
-        else
+            h_entered = false;
+        }
+        else {
             h_entered = true;
-
+        }
         //If all required information has been entered
-        if(p_entered == true && c_entered == true && y_entered == true && h_entered == true)
+        if(p_entered && c_entered && y_entered && h_entered)
         {
+            Tutor tutor = new Tutor();
+            tutor.setCourses(course);
+            tutor.setProgram(program);
+
+            boolean insert = db.insertTutorInfo(tutor);
+            if (insert == true){
+                Toast.makeText(TutorInfoActivity.this, "Successfully Created", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(TutorInfoActivity.this, TutorActivity.class);
+                startActivity(intent);
+                finish();
+
+            }
 
 
 
@@ -104,5 +120,5 @@ public class TutorInfoActivity extends AppCompatActivity {
 
 
 
-    }*/
+    }
 }
