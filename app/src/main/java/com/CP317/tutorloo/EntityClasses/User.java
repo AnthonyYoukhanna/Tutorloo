@@ -7,7 +7,6 @@ public class User {
     private String email;
     private String dob;
     private String password;
-    private int userID;
 
     //-----first name accessor and mutators-------
     public String getfirstName() {
@@ -15,7 +14,7 @@ public class User {
     }
 
     public void setFirstName(String firstName) {
-        firstName = this.firstName;
+        this.firstName = firstName;
     }
 
     //-------------------------------------------
@@ -27,20 +26,26 @@ public class User {
     }
 
     public void setLastName(String lastName) {
-        lastName = this.lastName;
+
+        this.lastName = lastName;
     }
     //--------------------------------------------
 
 
     //-----Email accessor and mutators-------
-    public String email() {
+    public String getEmail() {
         return this.email;
     }
 
     public void setEmail(String email) {
-        email = this.email;
+
+        this.email = email;
     }
 
+    //-------date of birth
+    public void setDob(String dob) {
+        this.dob = dob;
+    }
     public String getdob() {
         return this.dob;
     }
@@ -50,23 +55,13 @@ public class User {
     //-----Password accessor and mutators-------
 
     public void setPassword(String password) {
-        password = this.password;
+        this.password = password;
     }
 
     public String getPassword() {
         return this.password;
     }
     //----------------------------------------
-
-
-    //-----User ID accessor and mutators-------
-    public void setUserID(int userID) {
-        userID = this.userID;
-    }
-
-    public int getUserID() {
-        return this.userID;
-    }
 
 }
 

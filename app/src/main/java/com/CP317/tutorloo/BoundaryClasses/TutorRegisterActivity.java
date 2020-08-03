@@ -13,15 +13,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.CP317.tutorloo.Database_Helper;
+import com.CP317.tutorloo.EntityClasses.Student;
 import com.CP317.tutorloo.R;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.regex.Pattern;
+import com.CP317.tutorloo.EntityClasses.Tutor;
 
 public class TutorRegisterActivity extends AppCompatActivity {
 
@@ -160,7 +159,13 @@ public class TutorRegisterActivity extends AppCompatActivity {
 
         if (isfirstnamevalid && isEmailValid && islastnamevalid && isPasswordValid && isdobValid) {
             //-----------------Check if user was inserted in the database------------
-            boolean insert = db.insertTutor(firstname,lastname,email,password, finalDOB);
+            Tutor tutor = new Tutor();
+            tutor.setFirstName(firstname);
+            tutor.setLastName(lastname);
+            tutor.setEmail(email);
+            tutor.setPassword(password);
+            tutor.setDob(stringDOB);
+            boolean insert = db.insertTutor(tutor);
             if (insert == true){
 
                 //Add email and username to shared preferences

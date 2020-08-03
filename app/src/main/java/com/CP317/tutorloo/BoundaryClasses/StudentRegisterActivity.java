@@ -13,15 +13,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.CP317.tutorloo.Database_Helper;
 import com.CP317.tutorloo.R;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.regex.Pattern;
+import com.CP317.tutorloo.EntityClasses.Student;
+
 
 public class StudentRegisterActivity extends AppCompatActivity {
 
@@ -34,6 +33,8 @@ public class StudentRegisterActivity extends AppCompatActivity {
     private EditText mPassword;
     private EditText mDOB;
     private EditText mConPass;
+
+
 
     private static final Pattern PASSWORD_PATTERN =
             Pattern.compile("^" +
@@ -58,7 +59,7 @@ public class StudentRegisterActivity extends AppCompatActivity {
         mPassword = (EditText) findViewById(R.id.password);
         mConPass = (EditText) findViewById(R.id.confirmpass);
         mDOB = (EditText) findViewById(R.id.dob);
-        AddData();
+
 
 
         mPrevious.setOnClickListener(new View.OnClickListener() {
@@ -69,11 +70,15 @@ public class StudentRegisterActivity extends AppCompatActivity {
             }
         });
 
-
+        mSubmit.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                  SetValidation();
+                  return;
+            }
+        });
 
 
     }
-
 
     //Hides keyboard when clicking off edit text box
     @Override
@@ -83,16 +88,6 @@ public class StudentRegisterActivity extends AppCompatActivity {
             imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
         }
         return super.dispatchTouchEvent(ev);
-    }
-
-    public void AddData(){
-        mSubmit.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                //Validate input
-                SetValidation();
-            }
-        });
-
     }
 
 
@@ -175,7 +170,14 @@ public class StudentRegisterActivity extends AppCompatActivity {
 
         if (isfirstnamevalid && isEmailValid && islastnamevalid && isPasswordValid && isdobValid) {
             //-----------------Check if user was inserted in the database------------
-            boolean insert = db.insertStudent(firstname,lastname,email,password, finalDOB);
+            Student student = new Student();
+            student.setFirstName(firstname);
+            student.setLastName(lastname);
+            student.setEmail(email);
+            student.setPassword(password);
+            student.setDob(stringDOB);
+
+            boolean insert = db.insertStudent(student);
             if (insert == true){
 
                 //Add email and username to shared preferences
@@ -198,4 +200,5 @@ public class StudentRegisterActivity extends AppCompatActivity {
         }
 
     }
+
 }

@@ -100,22 +100,22 @@
         app:layout_constraintVertical_bias="0.361" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName6"
+        android:id="@+id/course"
         android:layout_width="263dp"
         android:layout_height="44dp"
         android:ems="10"
-        android:hint="Courses"
+        android:hint="Course"
         android:inputType="textPersonName"
         android:textColor="#686868"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/programofstudy"
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/hourlyfee"
         android:layout_width="263dp"
         android:layout_height="44dp"
         android:layout_marginStart="64dp"
@@ -131,7 +131,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/programofstudy"
         android:layout_width="263dp"
         android:layout_height="44dp"
         android:ems="10"
@@ -142,11 +142,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName8"
+        app:layout_constraintTop_toBottomOf="@+id/yearofstudy"
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName8"
+        android:id="@+id/yearofstudy"
         android:layout_width="263dp"
         android:layout_height="44dp"
         android:ems="10"
@@ -157,7 +157,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3"
+        app:layout_constraintTop_toBottomOf="@+id/hourlyfee"
         app:layout_constraintVertical_bias="0.013" />
 
     <Button
