@@ -40,7 +40,7 @@ public class StudentRegisterActivity extends AppCompatActivity {
             Pattern.compile("^" +
                     "(?=.*[0-9])" +
                     "(?=.*[a-zA-Z])" +      //any letter
-                    "(?=.*[@#*$%^&+=+_])" +    //at least 1 special character
+                    "(?=.*[@#$%^&+=+_])" +    //at least 1 special character
                     "(?=\\S+$)" +           //no white spaces
                     ".{4,}" +               //at least 4 characters
                     "$");

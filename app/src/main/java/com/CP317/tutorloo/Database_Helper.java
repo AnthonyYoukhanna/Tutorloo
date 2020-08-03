@@ -21,6 +21,7 @@ public class Database_Helper extends SQLiteOpenHelper {
     public static final String Table_Name_user_program = "user_program";
     public static final String Table_Name_courses = "courses";
     public static final String Table_Name_programs = "programs";
+    public static int[] tutorIDs = new int[100];
 
 
     public Database_Helper(@Nullable Context context) {
@@ -30,7 +31,7 @@ public class Database_Helper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL("CREATE TABLE "+ Table_Name_Student+" (Student_id INTEGER,Last_Name VARCHAR,First_Name VARCHAR,Date_Of_Birth DATE,Email STRING,Encrypt_Pass VARCHAR) ");
-        sqLiteDatabase.execSQL("CREATE TABLE "+ Table_Name_tutor+" (Tutor_id INTEGER PRIMARY KEY AUTOINCREMENT,Last_Name VARCHAR,First_Name VARCHAR,Date_Of_Birth DATE,Email STRING,Encrypt_Pass VARCHAR,Biography LONGTEXT,Year_Of_Study INTEGER,Hourly_Fee INTEGER,Rating INTEGER, Course VARCHAR, Program VARCHAR) ");
+        sqLiteDatabase.execSQL("CREATE TABLE "+ Table_Name_tutor+" (Tutor_id INTEGER PRIMARY KEY AUTOINCREMENT,Last_Name VARCHAR,First_Name VARCHAR,Date_Of_Birth DATE,Email STRING,Encrypt_Pass VARCHAR,Biography LONGTEXT,Year_Of_Study VARCHAR,Hourly_Fee VARCHAR,Rating INTEGER, Course VARCHAR, Program VARCHAR) ");
 //        sqLiteDatabase.execSQL("CREATE TABLE "+ Table_Name_user_course+" (Course_id SMALLINT,Tutor_id SMALLINT) ");
 //        sqLiteDatabase.execSQL("CREATE TABLE "+ Table_Name_user_photo+" (Photo_id SMALLINT,Tutor_id SMALLINT,Link TEXT, Time_Added TIMESTAMP, Active BOOLEAN) ");
 //        sqLiteDatabase.execSQL("CREATE TABLE "+ Table_Name_user_program+" (Program_id SMALLINT,Tutor_id SMALLINT) ");
@@ -121,6 +122,7 @@ public class Database_Helper extends SQLiteOpenHelper {
         int count = cursor.getCount();
 
         boolean exists;
+
         if (count > 0) {
             exists  = true;
         }
@@ -138,7 +140,7 @@ public class Database_Helper extends SQLiteOpenHelper {
     public int[] findTutors(String[] criteriaArray) {
         SQLiteDatabase db = this.getReadableDatabase();
         //Can only store 100 tutors
-        int[] tutorIDs = new int[100];
+
 
         //Depending on how the array is filled, there will be 7 SQL statements
         //Each SQL statement searches the database and returns tutorIDs
@@ -161,6 +163,7 @@ public class Database_Helper extends SQLiteOpenHelper {
         //IF WE ARE ONLY SEARCHING BY COURSE
         else if (name == null && course != null && program == null)
         {
+            //Complete a JOIN between the User_Courses table and the tutor table
             cursor = db.rawQuery("Select Tutor_id from tutor where Course=?", new String[]{course});
         }
 
@@ -173,22 +176,22 @@ public class Database_Helper extends SQLiteOpenHelper {
         //IF WE ARE ONLY SEARCHING BY TUTOR NAME & COURSE
         else if (name != null && course != null && program==null)
         {
-            cursor = db.rawQuery("Select tutor_id from tutor where Name=? and Course=?", new String[]{name, course});
+            cursor = db.rawQuery("Select Tutor_id from tutor where Name=? and Course=?", new String[]{name, course});
         }
 
         //IF WE ARE ONLY SEARCHING BY TUTOR NAME & PROGRAM
         else if (name != null && course == null && program != null) {
-            cursor = db.rawQuery("Select tutor_id from tutor where Name=? and Program=?", new String[]{name, program});
+            cursor = db.rawQuery("Select Tutor_id from tutor where Name=? and Program=?", new String[]{name, program});
         }
 
         //IF WE ARE ONLY SEARCHING BY COURSE AND PROGRAM
         else if (name == null && course != null && program != null) {
-            cursor = db.rawQuery("Select tutor_id from tutor where Course=? and Program=?", new String[]{course, program});
+            cursor = db.rawQuery("Select Tutor_id from tutor where Course=? and Program=?", new String[]{course, program});
         }
 
         //IF WE ARE ONLY SEARCHING BY ALL CRITERIA
         else if (name != null && course != null && program != null) {
-            cursor = db.rawQuery("Select tutor_id from tutor where Name= ? and Course=? and Program=?", new String[]{name, course, program});
+            cursor = db.rawQuery("Select Tutor_id from Tutor where Name= ? and Course=? and Program=?", new String[]{name, course, program});
         }
 
         //iterate through cursor and put all results into the tutorIDs array
@@ -204,8 +207,44 @@ public class Database_Helper extends SQLiteOpenHelper {
         }
 
         return tutorIDs;
+    }
 
+    //Get the cursor that points to all the data that will be displayed in TutorListView
+    public Cursor getTutorLCursor()
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = null;
+
+        int length = tutorIDs.length;
+
+        String query = "Select First_Name, Last_Name, Program from Tutor";
+
+        //SQL statement
+        for(int i=0; i < length; i++)
+        {
+            if(i ==0)
+            {
+                String theID = "where Tutor_Id =";
+                theID.concat(Integer.toString(tutorIDs[0]));
+
+                //Add to the query
+                query.concat(theID);
+            }
+            else {
+                String theID = "or Tutor_Id=";
+                theID.concat(Integer.toString(tutorIDs[i]));
+
+                //Add to the query
+                query.concat(theID);
+            }
+        }
+
+        // ISSUE HERE: cursor = db.rawQuery(query);
+        // return cursor;
+
+        return cursor;
 
     }
+
 
 }

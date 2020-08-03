@@ -2,6 +2,7 @@ package com.CP317.tutorloo.BoundaryClasses;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.MenuItem;
@@ -32,6 +33,7 @@ public class StudentActivity extends AppCompatActivity implements PopupMenu.OnMe
     private AutoCompleteTextView mName;
     private AutoCompleteTextView mCourse;
     private AutoCompleteTextView mProgram;
+    public static int [] tutorID= new int[10];
     Database_Helper db;
 
 
@@ -107,6 +109,12 @@ public class StudentActivity extends AppCompatActivity implements PopupMenu.OnMe
         }
     }
 
+    public static int[] getTutorID()
+    {
+        return tutorID;
+    }
+
+
     /*This method will send the criteria to the DB_Helper class
       in the form on an array
       array[0] = Name
@@ -138,10 +146,10 @@ public class StudentActivity extends AppCompatActivity implements PopupMenu.OnMe
             criteriaArray[2]= course;
 
         //Get the database in here and send the criteria by doing db.findTutors(criteriaArray)
-        int[] tutorIds= db.findTutors(criteriaArray);
+        tutorID= db.findTutors(criteriaArray);
 
         //If the array is not empty
-        if(tutorIds.length !=0)
+        if(tutorID.length !=0)
         {
             //Display to user that matches have been found and change view to TutorList Activity
             Toast.makeText(getApplicationContext(), "Matches Found", Toast.LENGTH_LONG).show();
@@ -155,5 +163,8 @@ public class StudentActivity extends AppCompatActivity implements PopupMenu.OnMe
             Toast.makeText(getApplicationContext(), "No Matches Found", Toast.LENGTH_LONG).show();
         }
     }
+
+
+
 
 }

@@ -27,9 +27,9 @@ public class TutorActivity extends AppCompatActivity implements PopupMenu.OnMenu
         popup.show();
     }
 
-
     @Override
-    public boolean onMenuItemClick(MenuItem item) {
+    public boolean onMenuItemClick(MenuItem item)
+    {
         switch (item.getItemId()) {
             case R.id.profile:
                 Intent intent = new Intent(TutorActivity.this, TutorProfileActivity.class);
