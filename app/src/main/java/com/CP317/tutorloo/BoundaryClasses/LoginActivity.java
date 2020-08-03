@@ -24,11 +24,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText mEmail, mPassword;
     private Button mReset;
     Database_Helper db;
-    //DatabaseHelper myDb = new DatabaseHelper(getApplicationContext());
 
-    // private authentification through sqlite
-    // private authentication listener?
-    // zack test
 
     @Override
     protected  void onCreate(Bundle savedInstanceState) {
@@ -38,7 +34,6 @@ public class LoginActivity extends AppCompatActivity {
         db = new Database_Helper(this);
         mLogin = (Button) findViewById(R.id.login);
         mRegister = (Button) findViewById(R.id.RegisterButton);
-        mTutorLogin = (Button) findViewById(R.id.tutor_login);
         mInfo = (ImageButton) findViewById(R.id.HelpButton);
         mReset = (Button) findViewById(R.id.resetpass);
 
@@ -51,7 +46,6 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 loginValidation();
-                finish();
                 return;
             }
         });
@@ -63,14 +57,7 @@ public class LoginActivity extends AppCompatActivity {
                 return;
             }
         });
-        mTutorLogin.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, TutorActivity.class);
-                startActivity(intent);
-                finish();
-                return;
-            }
-        });
+
         mInfo.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this, HelpViewActivity.class);
@@ -92,11 +79,13 @@ public class LoginActivity extends AppCompatActivity {
     //Login validation
     public void loginValidation() {
         final String email = mEmail.getText().toString();
-        final String password = mPassword.getText().toString(); //Add auth through sqlite db
+        final String password = mPassword.getText().toString();
 
         //Login validation
         boolean email_entered;
         boolean pass_entered;
+
+        //Generate error if fields are empty
         if (email.isEmpty()) {
             mEmail.setError("Please enter an email address");
             email_entered = false;
@@ -113,10 +102,11 @@ public class LoginActivity extends AppCompatActivity {
             pass_entered = true;
         }
 
+        //If not empty: check if users are registered
         if (pass_entered && email_entered) {
             boolean user_exists = db.checkStudent(email, password);
             boolean tutor_exists = db.checkTutor(email,password);
-            if (user_exists == true) {
+            if (user_exists) {
                 final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
                 SharedPreferences.Editor editor = sharedPref.edit();
                 editor.putBoolean("Registered", true);

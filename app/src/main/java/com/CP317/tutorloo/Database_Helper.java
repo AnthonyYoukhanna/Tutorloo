@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 import java.sql.Date;
+import com.CP317.tutorloo.EntityClasses.Student;
 
 public class Database_Helper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "Users.db";
@@ -54,18 +55,15 @@ public class Database_Helper extends SQLiteOpenHelper {
 
     }
 
-    public boolean insertStudent(String firstName, String lastName, String email, String password, Date dateOfBirth) {
+    public boolean insertStudent(Student student) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
-        contentValues.put("First_Name", firstName);
-        contentValues.put("Last_Name", lastName);
-        contentValues.put("Email", email);
-        contentValues.put("Date_of_Birth", String.valueOf(dateOfBirth));
-
-
-        //Password encryption goes here? also student id gen
-        contentValues.put("Encrypt_Pass", password);
+        contentValues.put("First_Name", student.getfirstName());
+        contentValues.put("Last_Name", student.getlastName());
+        contentValues.put("Email", student.getEmail());
+        contentValues.put("Date_of_Birth", String.valueOf(student.getdob()));
+        contentValues.put("Encrypt_Pass", student.getPassword());
         long result = db.insert("Student", null, contentValues);
         if (result == 1) {
             return false;
