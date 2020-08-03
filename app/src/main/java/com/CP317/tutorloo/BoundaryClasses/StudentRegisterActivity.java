@@ -19,9 +19,9 @@ import com.CP317.tutorloo.R;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.regex.Pattern;
-import com.CP317.tutorloo.EntityClasses.User;
-
 import com.CP317.tutorloo.EntityClasses.Student;
+
+
 public class StudentRegisterActivity extends AppCompatActivity {
 
     Database_Helper db;
