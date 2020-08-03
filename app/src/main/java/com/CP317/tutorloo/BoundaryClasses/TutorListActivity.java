@@ -1,21 +1,28 @@
 package com.CP317.tutorloo.BoundaryClasses;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.PopupMenu;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.CP317.tutorloo.Database_Helper;
 import com.CP317.tutorloo.R;
 
 public class TutorListActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener{
+    Database_Helper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutorlistview);
+        getTutorInfo();
+
+
 
     }
 
@@ -47,13 +54,10 @@ public class TutorListActivity extends AppCompatActivity implements PopupMenu.On
 
     public void getTutorInfo()
     {
-        //Get the tutorID array
-        int[] array = StudentActivity.getTutorID();
+        Cursor cursor = null;
 
-        //SQL statements
-        // Grab all data from the database
-
-        //Someway to populate the UI
+        //Get the cursor
+        db.getTutorLCursor();
 
     }
 
