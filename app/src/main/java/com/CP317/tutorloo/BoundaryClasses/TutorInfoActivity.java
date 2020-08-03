@@ -19,7 +19,7 @@ import com.CP317.tutorloo.R;
 public class TutorInfoActivity extends AppCompatActivity {
    private ImageButton mPrevious;
    private Button mSave;
-   private EditText mYearofStudy, mProgram, mCourse, mHourlyfee;
+   private EditText mYearofStudy, mProgram, mCourse, mHourlyfee, mBio;
    Database_Helper db;
 
     @Override
@@ -34,6 +34,7 @@ public class TutorInfoActivity extends AppCompatActivity {
         mProgram = (EditText) findViewById(R.id.programofstudy);
         mCourse = (EditText) findViewById(R.id.course);
         mHourlyfee = (EditText) findViewById(R.id.hourlyfee);
+        mBio = (EditText) findViewById(R.id.Bio);
 
         mPrevious.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -45,8 +46,6 @@ public class TutorInfoActivity extends AppCompatActivity {
 
         mSave.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent intent = new Intent(TutorInfoActivity.this, TutorActivity.class);
-                startActivity(intent);
                 infoValidation();
                 return;
             }
@@ -57,9 +56,21 @@ public class TutorInfoActivity extends AppCompatActivity {
     public void infoValidation() {
         String program = mProgram.getText().toString();
         String course = mCourse.getText().toString();
+        String bio = mBio.getText().toString();
         int yearofstudy = Integer.parseInt(String.valueOf(mYearofStudy.getText()));
         int hourlyfee = Integer.parseInt(String.valueOf(mHourlyfee.getText()));
-        boolean p_entered, c_entered, y_entered, h_entered;
+
+        boolean p_entered, c_entered, y_entered, h_entered, b_entered;
+
+        //Check to see if the bio was entered
+        if (bio.isEmpty()) {
+            mBio.setError("Field cannot be empty");
+            b_entered = false;
+        }
+        else {
+            b_entered = true;
+        }
+
 
         //Check to see if the program was entered
         if (program.isEmpty()) {
@@ -103,6 +114,9 @@ public class TutorInfoActivity extends AppCompatActivity {
             Tutor tutor = new Tutor();
             tutor.setCourses(course);
             tutor.setProgram(program);
+            tutor.setYear_of_study(yearofstudy);
+            tutor.setBiography(bio);
+            tutor.setHourlyRate(hourlyfee);
 
             boolean insert = db.insertTutorInfo(tutor);
             if (insert == true){

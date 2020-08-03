@@ -85,6 +85,9 @@ public class Database_Helper extends SQLiteOpenHelper {
         ContentValues contentValues = new ContentValues();
         contentValues.put("Course", tutor.getCourse());
         contentValues.put("Program", tutor.getProgram());
+        contentValues.put("Year_Of_Study", tutor.getYear_of_study());
+        contentValues.put("Biography", tutor.getBiography());
+        contentValues.put("Hourly_Fee", tutor.getHourlyRate());
 
         long result = db.insert("tutor", null, contentValues);
         if (result == 1) {
