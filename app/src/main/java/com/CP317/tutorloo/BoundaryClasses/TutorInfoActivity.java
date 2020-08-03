@@ -56,8 +56,8 @@ public class TutorInfoActivity extends AppCompatActivity {
         String program = mProgram.getText().toString();
         String course = mCourse.getText().toString();
         String bio = mBio.getText().toString();
-        int yearofstudy = Integer.parseInt(String.valueOf(mYearofStudy.getText()));
-        int hourlyfee = Integer.parseInt(String.valueOf(mHourlyfee.getText()));
+        String yearofstudy = mYearofStudy.getText().toString();
+        String hourlyfee = mHourlyfee.getText().toString();
 
         boolean p_entered, c_entered, y_entered, h_entered, b_entered;
 
