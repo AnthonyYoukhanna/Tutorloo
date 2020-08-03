@@ -1,13 +1,11 @@
 package com.CP317.tutorloo.BoundaryClasses;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,7 +24,6 @@ public class TutorInfoActivity extends AppCompatActivity {
     protected  void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutorinfoview);
-
 
         mPrevious = (ImageButton) findViewById(R.id.previous5);
         mSave = (Button) findViewById(R.id.button2);
@@ -119,11 +116,11 @@ public class TutorInfoActivity extends AppCompatActivity {
             tutor.setHourlyRate(hourlyfee);
 
             boolean insert = db.insertTutorInfo(tutor);
-            if (insert == true){
+            if (insert){
                 Toast.makeText(TutorInfoActivity.this, "Successfully Created", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(TutorInfoActivity.this, TutorActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
-                finish();
 
             }
 

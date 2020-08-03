@@ -26,7 +26,7 @@ public class ProxyActivity extends AppCompatActivity {
         Boolean student;
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
         registered = sharedPref.getBoolean("Registered", false);
-        student = sharedPref.getBoolean("student", false);
+        student = sharedPref.getBoolean("Student", false);
 
         if (!registered) {
             activityIntent  = new Intent(this, LoginActivity.class);
