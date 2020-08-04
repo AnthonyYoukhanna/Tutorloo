@@ -1,5 +1,6 @@
 package com.CP317.tutorloo.BoundaryClasses;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -23,8 +24,16 @@ public class TutorProfileActivity extends AppCompatActivity {
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
         tutor = sharedPref.getBoolean("Student", false);
 
-        if (tutor){
+        if (!tutor){
             mEdit.setVisibility(View.VISIBLE);
+            mEdit.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View view) {
+                    Intent intent = new Intent(TutorProfileActivity.this, TutorInfoActivity.class);
+                    startActivity(intent);
+                    return;
+                }
+            });
+
         }
 
     }

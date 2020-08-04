@@ -47,6 +47,16 @@ public class Database_Helper extends SQLiteOpenHelper {
 
     }
 
+
+//    public int getTutorID(Tutor tutor){
+//        SQLiteDatabase db = this.getReadableDatabase();
+//        String email = tutor.getEmail();
+//
+//        Cursor cursor = db.rawQuery("Select * from tutor where email=?", new String[]{email});
+//        int ID = cursor;
+//    }
+
+
     public boolean insertStudent(Student student) {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -66,6 +76,7 @@ public class Database_Helper extends SQLiteOpenHelper {
     public boolean insertTutor(Tutor tutor) {
         SQLiteDatabase db = this.getWritableDatabase();
 
+
         ContentValues contentValues = new ContentValues();
         contentValues.put("First_Name", tutor.getfirstName());
         contentValues.put("Last_Name", tutor.getlastName());
@@ -80,7 +91,7 @@ public class Database_Helper extends SQLiteOpenHelper {
         }
     }
 
-    public boolean insertTutorInfo(Tutor tutor) {
+    public boolean insertTutorInfo(Tutor tutor, String email) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
@@ -90,12 +101,13 @@ public class Database_Helper extends SQLiteOpenHelper {
         contentValues.put("Biography", tutor.getBiography());
         contentValues.put("Hourly_Fee", tutor.getHourlyRate());
 
-        long result = db.insert("tutor", null, contentValues);
-        if (result == 1) {
-            return false;
-        } else {
-            return true;
-        }
+        db.update("tutor", contentValues, "Email =?", null);
+//        if (result == 1) {
+//            return false;
+//        } else {
+//            return true;
+//        }
+        return true;
     }
 
     //checking if user exists

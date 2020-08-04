@@ -1,7 +1,9 @@
 package com.CP317.tutorloo.BoundaryClasses;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -115,7 +117,11 @@ public class TutorInfoActivity extends AppCompatActivity {
             tutor.setBiography(bio);
             tutor.setHourlyRate(hourlyfee);
 
-            boolean insert = db.insertTutorInfo(tutor);
+            SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+            String email = sharedPref.getString("Username", null);
+
+
+            boolean insert = db.insertTutorInfo(tutor, email);
             if (insert){
                 Toast.makeText(TutorInfoActivity.this, "Successfully Created", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(TutorInfoActivity.this, TutorActivity.class);

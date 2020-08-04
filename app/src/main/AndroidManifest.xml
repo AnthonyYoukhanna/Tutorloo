@@ -10,7 +10,6 @@
         android:roundIcon="@mipmap/app_icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".BoundaryClasses.StudentActivity" />
         <activity
             android:name=".BoundaryClasses.ProxyActivity"
             android:theme="@android:style/Theme.NoDisplay">
@@ -20,7 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity android:name=".BoundaryClasses.StudentActivity" />
         <activity android:name=".BoundaryClasses.LoginActivity"/>
         <activity android:name=".BoundaryClasses.RegisterActivity" />
         <activity android:name=".BoundaryClasses.TutorActivity" />

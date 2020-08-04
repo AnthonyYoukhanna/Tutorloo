@@ -31,7 +31,7 @@ public class ProxyActivity extends AppCompatActivity {
         if (!registered) {
             activityIntent  = new Intent(this, LoginActivity.class);
         } else {
-            if (!student) {
+            if (student) {
                 activityIntent = new Intent(this, StudentActivity.class);
             }else {
                 activityIntent = new Intent(this, TutorActivity.class);

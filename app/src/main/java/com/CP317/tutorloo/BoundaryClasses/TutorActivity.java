@@ -38,7 +38,7 @@ public class TutorActivity extends AppCompatActivity implements PopupMenu.OnMenu
             case R.id.logout:
                  SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
                  SharedPreferences.Editor editor = sharedPref.edit();
-                 editor.putBoolean("Registered", true);
+                 editor.putBoolean("Registered", false);
                 editor.apply();
 
                 Intent intent2 = new Intent(TutorActivity.this, LoginActivity.class);
