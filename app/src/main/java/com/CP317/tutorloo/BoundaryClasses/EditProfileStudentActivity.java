@@ -4,8 +4,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.inputmethod.InputMethodManager;
-
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.CP317.tutorloo.R;

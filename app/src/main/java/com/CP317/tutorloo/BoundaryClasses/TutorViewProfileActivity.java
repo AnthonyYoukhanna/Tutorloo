@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,13 +15,13 @@ import com.CP317.tutorloo.R;
 
 public class TutorViewProfileActivity extends AppCompatActivity {
     private Button mDone;
-    private ImageButton mBack;
+    private ImageView mBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutorviewprofile);
         mDone = (Button) findViewById(R.id.Done);
-        mBack = (ImageButton)findViewById(R.id.Back);
+        mBack = (ImageView)findViewById(R.id.Back);
 
         mDone.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {

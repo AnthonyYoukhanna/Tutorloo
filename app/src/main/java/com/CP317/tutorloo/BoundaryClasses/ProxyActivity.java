@@ -11,8 +11,6 @@ public class ProxyActivity extends AppCompatActivity {
 
 
     //Database_Helper db;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -43,4 +41,6 @@ public class ProxyActivity extends AppCompatActivity {
         finish();
 
     }
+
+
 }

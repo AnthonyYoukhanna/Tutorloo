@@ -28,7 +28,7 @@ public class TutorProfileActivity extends AppCompatActivity {
             mEdit.setVisibility(View.VISIBLE);
             mEdit.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {
-                    Intent intent = new Intent(TutorProfileActivity.this, TutorInfoActivity.class);
+                    Intent intent = new Intent(TutorProfileActivity.this, EditProfileTutorActivity.class);
                     startActivity(intent);
                     return;
                 }

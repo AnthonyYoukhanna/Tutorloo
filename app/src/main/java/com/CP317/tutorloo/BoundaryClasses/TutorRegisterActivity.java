@@ -13,23 +13,20 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.CP317.tutorloo.Database_Helper;
-import com.CP317.tutorloo.EntityClasses.Tutor;
 import com.CP317.tutorloo.R;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.regex.Pattern;
+import com.CP317.tutorloo.EntityClasses.Tutor;
 
 public class TutorRegisterActivity extends AppCompatActivity {
 
     Database_Helper db;
     private ImageButton mPrevious;
-    private Button mContinue;
-    private EditText mEmail, mFirst, mLast, mPassword, mDOB, mConPass;
+    private Button mSubmit;
+    private EditText mEmail, mFirst, mLast, mPassword, mDOB, mConPass, mYearofStudy, mProgram, mCourse, mHourlyfee, mBio;
 
     private static final Pattern PASSWORD_PATTERN =
             Pattern.compile("^" +
@@ -42,19 +39,25 @@ public class TutorRegisterActivity extends AppCompatActivity {
     @Override
     protected  void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tutorregisterview);
+        setContentView(R.layout.activity_tutorregisteractivity);
 
 
         db = new Database_Helper(this);
 
-        mPrevious = (ImageButton) findViewById(R.id.RegisterPrevious);
-        mContinue = (Button) findViewById(R.id.button3);
+        mPrevious = (ImageButton) findViewById(R.id.previous2);
+        mSubmit = (Button) findViewById(R.id.button4);
         mEmail = (EditText) findViewById(R.id.email);
         mFirst = (EditText) findViewById(R.id.firstName);
         mLast = (EditText) findViewById(R.id.lastName);
         mPassword = (EditText) findViewById(R.id.password);
         mConPass = (EditText) findViewById(R.id.confirmpass);
         mDOB = (EditText) findViewById(R.id.dob);
+
+        mYearofStudy = (EditText) findViewById(R.id.yearofstudy);
+        mProgram = (EditText) findViewById(R.id.Program);
+        mCourse = (EditText) findViewById(R.id.Course);
+        mHourlyfee = (EditText) findViewById(R.id.hourlyfee);
+        mBio = (EditText) findViewById(R.id.Bio);
 
         mPrevious.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -64,9 +67,9 @@ public class TutorRegisterActivity extends AppCompatActivity {
             }
         });
 
-        mContinue.setOnClickListener(new View.OnClickListener() {
+        mSubmit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-               SetValidation();
+                SetValidation();
                 return;
             }
         });
@@ -91,6 +94,13 @@ public class TutorRegisterActivity extends AppCompatActivity {
         String lastname = mLast.getText().toString();
         String password = mPassword.getText().toString();
         String conPassword = mConPass.getText().toString();
+        String program = mProgram.getText().toString();
+        String course = mCourse.getText().toString();
+        String bio = mBio.getText().toString();
+        String yearofstudy = mYearofStudy.getText().toString();
+        String hourlyfee = mHourlyfee.getText().toString();
+
+        boolean p_entered, c_entered, y_entered, h_entered, b_entered;
         boolean isfirstnamevalid;
         boolean islastnamevalid;
         boolean isEmailValid;
@@ -159,8 +169,64 @@ public class TutorRegisterActivity extends AppCompatActivity {
         } else  {
             isPasswordValid = true;
         }
+        //Check to see if the bio was entered
+        if (bio.isEmpty()) {
+            mBio.setError("Field cannot be empty");
+            b_entered = false;
+        }
+        else {
+            b_entered = true;
+        }
 
-        if (isfirstnamevalid && isEmailValid && islastnamevalid && isPasswordValid && isdobValid) {
+
+        //Check to see if the program was entered
+        if (program.isEmpty()) {
+            mProgram.setError("Field cannot be empty");
+            p_entered = false;
+        }
+        else {
+            p_entered = true;
+        }
+
+        //Check to see if the courses were entered (only 1 course can be entered
+        if (course.isEmpty()) {
+            mCourse.setError("Field cannot be empty");
+            c_entered = false;
+        }
+        else {
+            c_entered = true;
+        }
+
+        //Check to see if the year of study is empty
+        if (yearofstudy.isEmpty()){
+            mYearofStudy.setError("Field cannot be empty");
+            y_entered = false;
+        }
+        else {
+            y_entered = true;
+        }
+
+
+        //Check to see if the hourly fee has been entered
+        if(hourlyfee.isEmpty()){
+            mHourlyfee.setError("Field cannot be empty");
+            h_entered = false;
+        }
+        else {
+            h_entered = true;
+        }
+
+        //Check to see if the hourly fee has been entered
+        if(bio.isEmpty()){
+            mBio.setError("Field cannot be empty");
+            b_entered = false;
+        }
+        else {
+            b_entered = true;
+        }
+
+
+        if (isfirstnamevalid && isEmailValid && islastnamevalid && isPasswordValid && isdobValid && p_entered && c_entered && y_entered && h_entered && b_entered) {
             //-----------------Check if user was inserted in the database------------
             Tutor tutor = new Tutor();
             tutor.setFirstName(firstname);
@@ -168,7 +234,11 @@ public class TutorRegisterActivity extends AppCompatActivity {
             tutor.setEmail(email);
             tutor.setPassword(password);
             tutor.setDob(stringDOB);
-
+            tutor.setCourses(course);
+            tutor.setProgram(program);
+            tutor.setYear_of_study(yearofstudy);
+            tutor.setBiography(bio);
+            tutor.setHourlyRate(hourlyfee);
 
 
             boolean insert = db.insertTutor(tutor);
@@ -183,12 +253,11 @@ public class TutorRegisterActivity extends AppCompatActivity {
                 editor.putBoolean("Student", false);
 
                 editor.apply();
-
                 Toast.makeText(TutorRegisterActivity.this, "Successfully Created", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(TutorRegisterActivity.this, TutorInfoActivity.class);
+                Intent intent = new Intent(TutorRegisterActivity.this, TutorActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
-                finish();
-                return;
+
             }
         }
 
