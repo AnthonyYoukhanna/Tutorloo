@@ -70,9 +70,9 @@ public class Database_Helper extends SQLiteOpenHelper {
             return true;
         }
     }
+
     public boolean insertTutor(Tutor tutor) {
         SQLiteDatabase db = this.getWritableDatabase();
-
 
         ContentValues contentValues = new ContentValues();
         contentValues.put("First_Name", tutor.getfirstName());
@@ -247,10 +247,16 @@ public class Database_Helper extends SQLiteOpenHelper {
                 //Add to the query
                 query+=theID;
             }
+
+            //Because we need some way to clear it
+            tutorIDs[i]=0; //******************************************************************************************************
         }
 
         Log.e("The SQL Statement: ", query);
         cursor = db.rawQuery(query,null); //Error maybe here?
+        query = null;
+
+
 
         return cursor;
 

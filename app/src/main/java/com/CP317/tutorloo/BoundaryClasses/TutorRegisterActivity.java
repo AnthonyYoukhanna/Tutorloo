@@ -41,11 +41,10 @@ public class TutorRegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutorregisteractivity);
 
-
         db = new Database_Helper(this);
 
         mPrevious = (ImageButton) findViewById(R.id.previous2);
-        mSubmit = (Button) findViewById(R.id.button4);
+        mSubmit = (Button) findViewById(R.id.submitb);
         mEmail = (EditText) findViewById(R.id.email);
         mFirst = (EditText) findViewById(R.id.firstname);
         mLast = (EditText) findViewById(R.id.lastname);

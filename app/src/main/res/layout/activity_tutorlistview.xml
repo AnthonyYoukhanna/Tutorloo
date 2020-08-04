@@ -99,7 +99,7 @@
 
     <Button
         android:id="@+id/b1"
-        android:gravity="left|center_vertical"
+        android:gravity="center|center_vertical"
         android:layout_width="319dp"
         android:layout_height="124dp"
         android:text=""

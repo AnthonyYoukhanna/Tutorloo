@@ -54,7 +54,6 @@ public class Tutor extends User {
     //---------------------------------------------
 
 
-
     //-----------Bio accessor and mutator---------
     public void setBiography(String biography) {
         this.biography = biography;

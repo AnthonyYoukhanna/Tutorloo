@@ -175,6 +175,8 @@ public class StudentActivity extends AppCompatActivity implements PopupMenu.OnMe
         else{
             Toast.makeText(getApplicationContext(), "No Matches Found", Toast.LENGTH_LONG).show();
         }
+
+        tutorID = null;
     }
 
 

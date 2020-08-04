@@ -66,12 +66,16 @@ public class TutorListActivity extends AppCompatActivity implements PopupMenu.On
 
     public void getTutorInfo()
     {
+        b1.setText("");
+        b2.setText("");
+        b3.setText("");
+
         Cursor cursor = null;
 
         //Get the cursor
         cursor = db.getTutorLCursor();
 
-        b1.setText("");         //For testing purposes
+        b1.setText("");//For testing purposes
         int i=0;
 
         //Get an array of the buttons and iterate through that
@@ -105,7 +109,11 @@ public class TutorListActivity extends AppCompatActivity implements PopupMenu.On
             //Buttons will connect to profile
         }
 
+
     }
+
+    //Need a way to grab the id's so that the onclick method takes the id of the corresponding box
+    //And then we query the database again and the tutorprofileview can be shown.
 
 
 }

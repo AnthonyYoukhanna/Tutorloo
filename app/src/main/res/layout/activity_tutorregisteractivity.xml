@@ -165,7 +165,7 @@
                 android:inputType="textPersonName" />
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/submitb"
                 android:layout_width="109dp"
                 android:layout_height="44dp"
                 android:background="@color/purple"
