@@ -4,11 +4,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-<<<<<<< HEAD
+//<<<<<<< HEAD
 import android.preference.PreferenceManager;
-=======
+//=======
 import android.view.MotionEvent;
->>>>>>> 474094235314ffaf8dae51f21e1b50d3a43c8962
+//>>>>>>> 474094235314ffaf8dae51f21e1b50d3a43c8962
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -136,14 +136,13 @@ public class TutorInfoActivity extends AppCompatActivity {
             SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
             String email = sharedPref.getString("Username", null);
 
-
             boolean insert = db.insertTutorInfo(tutor, email);
+
             if (insert){
                 Toast.makeText(TutorInfoActivity.this, "Successfully Created", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(TutorInfoActivity.this, TutorActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
-
             }
         }
     }

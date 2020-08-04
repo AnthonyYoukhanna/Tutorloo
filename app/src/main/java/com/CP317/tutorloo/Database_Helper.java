@@ -31,7 +31,7 @@ public class Database_Helper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL("CREATE TABLE "+ Table_Name_Student+" (Student_id INTEGER,Last_Name VARCHAR,First_Name VARCHAR,Date_Of_Birth DATE,Email STRING,Encrypt_Pass VARCHAR) ");
-        sqLiteDatabase.execSQL("CREATE TABLE "+ Table_Name_tutor+" (Tutor_id INTEGER PRIMARY KEY AUTOINCREMENT,Last_Name VARCHAR,First_Name VARCHAR,Date_Of_Birth DATE,Email STRING,Encrypt_Pass VARCHAR,Biography LONGTEXT,Year_Of_Study VARCHAR,Hourly_Fee VARCHAR,Rating INTEGER, Course VARCHAR, Program VARCHAR) ");
+        sqLiteDatabase.execSQL("CREATE TABLE "+ Table_Name_tutor+" (Tutor_id INTEGER PRIMARY KEY AUTOINCREMENT,Last_Name VARCHAR,First_Name VARCHAR,Date_Of_Birth DATE,Email STRING,Encrypt_Pass VARCHAR,Biography LONGTEXT,Year_Of_Study VARCHAR,Hourly_Fee VARCHAR,Rating INTEGER,Course VARCHAR, Program VARCHAR) ");
 //        sqLiteDatabase.execSQL("CREATE TABLE "+ Table_Name_user_course+" (Course_id SMALLINT,Tutor_id SMALLINT) ");
 //        sqLiteDatabase.execSQL("CREATE TABLE "+ Table_Name_user_photo+" (Photo_id SMALLINT,Tutor_id SMALLINT,Link TEXT, Time_Added TIMESTAMP, Active BOOLEAN) ");
 //        sqLiteDatabase.execSQL("CREATE TABLE "+ Table_Name_user_program+" (Program_id SMALLINT,Tutor_id SMALLINT) ");
@@ -42,11 +42,7 @@ public class Database_Helper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+ Table_Name_Student);
-        onCreate(sqLiteDatabase);
-
-
-    }
-
+        onCreate(sqLiteDatabase);    }
 
 //    public int getTutorID(Tutor tutor){
 //        SQLiteDatabase db = this.getReadableDatabase();
@@ -215,8 +211,11 @@ public class Database_Helper extends SQLiteOpenHelper {
             tutorIDs[i] = Integer.parseInt(cursor.getString(0));
             Log log = null;
             log.e("Success:",Integer.toString(tutorIDs[i]));
-            //i++;
+            i++;
         }
+
+        Log.e("TutorId[0] in fun1",Integer.toString(tutorIDs[0])); //should print 1
+        Log.e("TutorId[1] in fun1",Integer.toString(tutorIDs[1])); //should print 2
 
         return tutorIDs;
     }
@@ -231,28 +230,39 @@ public class Database_Helper extends SQLiteOpenHelper {
 
         String query = "Select First_Name, Last_Name, Program from Tutor";
 
+        String theLength = Integer.toString(length);
+
+        Log.e("The length of the array",theLength);
         //SQL statement
         for(int i=0; i < length; i++)
         {
+            if(tutorIDs[i]==0){
+                break;
+            }
+
+            Log.e("TutorId[0] in fun2",Integer.toString(tutorIDs[0])); //should print 1
+            Log.e("TutorId[1] in fun2",Integer.toString(tutorIDs[1])); //should print 2
+
             if(i ==0)
             {
-                String theID = "where Tutor_Id =";
-                theID.concat(Integer.toString(tutorIDs[0]));
+                //"Select Tutor_id from Tutor where Name= ? and Course=? and Program=?", new String[]{name, course, program});
+                String theID = " where Tutor_Id =";
+                theID += Integer.toString(tutorIDs[0]);
 
                 //Add to the query
-                query.concat(theID);
+                query+=(theID);
             }
             else {
-                String theID = "or Tutor_Id=";
-                theID.concat(Integer.toString(tutorIDs[i]));
+                String theID = " or Tutor_Id=";
+                theID+=Integer.toString(tutorIDs[i]);
 
                 //Add to the query
-                query.concat(theID);
+                query+=theID;
             }
         }
 
-        // ISSUE HERE: cursor = db.rawQuery(query);
-        // return cursor;
+        Log.e("The SQL Statement: ", query);
+        cursor = db.rawQuery(query,null); //Error maybe here?
 
         return cursor;
 

@@ -83,7 +83,8 @@ public class TutorRegisterActivity extends AppCompatActivity {
     }
 
     //-----------Validate email and password-------------
-    public void SetValidation() {
+    public void SetValidation()
+    {
         //set inputs to strings
         String email = mEmail.getText().toString();
         String firstname = mFirst.getText().toString();
