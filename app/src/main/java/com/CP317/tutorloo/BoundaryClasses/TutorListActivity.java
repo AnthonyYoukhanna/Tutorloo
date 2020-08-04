@@ -6,7 +6,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.PopupMenu;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,15 +18,18 @@ import com.CP317.tutorloo.R;
 
 public class TutorListActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener{
     Database_Helper db;
+    private TextView mField1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutorlistview);
+
+        //Set variables
+        db = new Database_Helper(this);
+        mField1 = (TextView) findViewById(R.id.Field1);
+
         getTutorInfo();
-
-
-
     }
 
     public void showPopup(View v) {
@@ -33,7 +39,6 @@ public class TutorListActivity extends AppCompatActivity implements PopupMenu.On
         popup.show();
     }
 
-
     @Override
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()) {
@@ -42,6 +47,7 @@ public class TutorListActivity extends AppCompatActivity implements PopupMenu.On
                 startActivity(intent);
 
                 return true;
+
             case R.id.logout:
                 //Needs to be updated
                 Intent intent2 = new Intent(TutorListActivity.this, LoginActivity.class);
@@ -57,7 +63,14 @@ public class TutorListActivity extends AppCompatActivity implements PopupMenu.On
         Cursor cursor = null;
 
         //Get the cursor
-        db.getTutorLCursor();
+        cursor = db.getTutorLCursor();
+
+        int i=0;
+        //Iterate through the cursor
+        while (cursor.moveToNext())
+        {
+            mField1.setText(cursor.getString(i));
+        }
 
     }
 
