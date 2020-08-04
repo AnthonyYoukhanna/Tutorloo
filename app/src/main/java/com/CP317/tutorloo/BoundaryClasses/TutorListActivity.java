@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
@@ -15,7 +16,7 @@ import com.CP317.tutorloo.Database_Helper;
 import com.CP317.tutorloo.R;
 
 public class TutorListActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener{
-    Database_Helper db;
+    private Database_Helper db;
     private TextView mField1;
     private Button b1;
     private Button b2;

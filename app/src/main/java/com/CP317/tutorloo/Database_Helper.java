@@ -7,8 +7,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 import androidx.annotation.Nullable;
-import com.CP317.tutorloo.EntityClasses.Student;
 import com.CP317.tutorloo.EntityClasses.Tutor;
+import com.CP317.tutorloo.EntityClasses.Student;
+
 
 public class Database_Helper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "Users.db";
@@ -16,9 +17,9 @@ public class Database_Helper extends SQLiteOpenHelper {
 
     public static final String Table_Name_Student = "Student";
     public static final String Table_Name_tutor = "tutor";
-    public static final String Table_Name_user_course = "user_course";
-    public static final String Table_Name_user_photo = "user_photo";
-    public static final String Table_Name_user_program = "user_program";
+//    public static final String Table_Name_user_course = "user_course";
+//    public static final String Table_Name_user_photo = "user_photo";
+//    public static final String Table_Name_user_program = "user_program";
     public static final String Table_Name_courses = "courses";
     public static final String Table_Name_programs = "programs";
     public static int[] tutorIDs = new int[100];

@@ -21,7 +21,6 @@ import java.text.SimpleDateFormat;
 import java.util.regex.Pattern;
 import com.CP317.tutorloo.EntityClasses.Student;
 
-
 public class StudentRegisterActivity extends AppCompatActivity {
 
     Database_Helper db;

@@ -47,10 +47,10 @@ public class TutorRegisterActivity extends AppCompatActivity {
         mPrevious = (ImageButton) findViewById(R.id.previous2);
         mSubmit = (Button) findViewById(R.id.button4);
         mEmail = (EditText) findViewById(R.id.email);
-        mFirst = (EditText) findViewById(R.id.firstName);
-        mLast = (EditText) findViewById(R.id.lastName);
+        mFirst = (EditText) findViewById(R.id.firstname);
+        mLast = (EditText) findViewById(R.id.lastname);
         mPassword = (EditText) findViewById(R.id.password);
-        mConPass = (EditText) findViewById(R.id.confirmpass);
+        mConPass = (EditText) findViewById(R.id.confpass);
         mDOB = (EditText) findViewById(R.id.dob);
 
         mYearofStudy = (EditText) findViewById(R.id.yearofstudy);
@@ -226,7 +226,8 @@ public class TutorRegisterActivity extends AppCompatActivity {
         }
 
 
-        if (isfirstnamevalid && isEmailValid && islastnamevalid && isPasswordValid && isdobValid && p_entered && c_entered && y_entered && h_entered && b_entered) {
+        if (isfirstnamevalid && isEmailValid && islastnamevalid && isPasswordValid &&
+                isdobValid && p_entered && c_entered && y_entered && h_entered && b_entered) {
             //-----------------Check if user was inserted in the database------------
             Tutor tutor = new Tutor();
             tutor.setFirstName(firstname);
