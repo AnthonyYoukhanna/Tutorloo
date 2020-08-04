@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
@@ -21,12 +22,27 @@ public class TutorListActivity extends AppCompatActivity implements PopupMenu.On
     private Button b1;
     private Button b2;
     private Button b3;
+    private Button msearch_again;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutorlistview);
+
+        //Goes back to the previous view
+        msearch_again = (Button) findViewById(R.id.search_again);
+
+        msearch_again.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                //Reset the text in the buttons
+
+
+                Intent intent = new Intent(TutorListActivity.this, StudentActivity.class);
+                startActivity(intent);
+                return;
+            }
+        });
 
         //Set variables
         db = new Database_Helper(this);
