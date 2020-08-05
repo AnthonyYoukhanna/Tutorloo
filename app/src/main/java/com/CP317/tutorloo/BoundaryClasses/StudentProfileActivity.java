@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,7 +26,7 @@ public class StudentProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_studentprofileview);
-
+        db = new Database_Helper(this);
         mEditProfile = (Button) findViewById(R.id.Edit);
         mPrevious = (ImageButton) findViewById(R.id.studentPrevious);
         mEmail = (EditText) findViewById(R.id.editTextTextEmailAddress2);
@@ -36,15 +35,17 @@ public class StudentProfileActivity extends AppCompatActivity {
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
         String email = sharedPref.getString("Username", null);
         String password = sharedPref.getString("Password", null);
-        Log.e("Email",email);
-        Log.e("Password", password);
+        //Log.e("Email",email);
+        //Log.e("Password", password);
         Student student =  new Student();
-        try {
-            student = db.getStudent(email, password);
-        }catch (Exception e)
-        {
-            Log.e("Yikers", "yikes.");
-        }
+//        try {
+//            student = db.getStudent(email, password);
+//        }catch (Exception e)
+//        {
+//            Log.e("Yikers", "yikes.");
+//        }
+
+        student = db.getStudent(email, password);
 
 
         mEmail.setText(student.getEmail());

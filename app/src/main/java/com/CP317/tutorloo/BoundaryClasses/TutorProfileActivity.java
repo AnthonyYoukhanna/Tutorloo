@@ -3,13 +3,11 @@ package com.CP317.tutorloo.BoundaryClasses;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
-import android.media.Image;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -32,7 +30,7 @@ public class TutorProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutorprofileview);
         boolean tutor;
-
+        db = new Database_Helper(this);
         mEdit = (Button) findViewById(R.id.edit_profile);
         mYear = (EditText) findViewById(R.id.tutor_year);
         mName = (EditText) findViewById((R.id.tutor_name));
