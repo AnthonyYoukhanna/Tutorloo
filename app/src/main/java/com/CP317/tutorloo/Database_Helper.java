@@ -93,7 +93,31 @@ public class Database_Helper extends SQLiteOpenHelper {
         }
     }
 
+    public Student getStudent(String email, String password){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Student student = new Student();
+        String query = "Select * from Student where Email=? and Encrypt_Pass=?";
+        Log.e("Query", query);
+        Cursor cursor = db.rawQuery(query, new String[]{email, password});
+        int index;
 
+        while(cursor.moveToNext()) {
+            index = cursor.getColumnIndexOrThrow("First_Name");
+            student.setFirstName(cursor.getString(index));
+            Log.e("First Name", cursor.getString(index));
+
+            index = cursor.getColumnIndexOrThrow("Last_Name");
+            student.setLastName(cursor.getString(index));
+            Log.e("Last Name", cursor.getString(index));
+
+            index = cursor.getColumnIndexOrThrow("Date_of_Birth");
+            student.setDob(cursor.getString(index));
+            Log.e("DOB", cursor.getString(index));
+        }
+        student.setEmail(email);
+
+        return student;
+    }
     //checking if user exists
     public boolean checkStudent(String email, String password) {
         SQLiteDatabase db = this.getReadableDatabase();

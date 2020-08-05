@@ -130,8 +130,9 @@ public class LoginActivity extends AppCompatActivity {
 
                 Toast.makeText(getApplicationContext(), "Successfully login", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(LoginActivity.this, StudentActivity.class);
-                startActivity(intent);
                 finish();
+                startActivity(intent);
+
             }
             else if (tutor_exists){
                 SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
@@ -145,8 +146,9 @@ public class LoginActivity extends AppCompatActivity {
 
                 Toast.makeText(getApplicationContext(), "Successfully login", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(LoginActivity.this, TutorActivity.class);
-                startActivity(intent);
                 finish();
+                startActivity(intent);
+
 
             }
             else {
