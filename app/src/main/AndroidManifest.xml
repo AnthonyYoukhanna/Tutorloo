@@ -30,6 +30,8 @@
         <activity android:name=".BoundaryClasses.StudentProfileActivity"/>
         <activity android:name=".BoundaryClasses.EditProfileStudentActivity"/>
         <activity android:name=".BoundaryClasses.TutorListActivity"/>
+        <activity android:name=".BoundaryClasses.EditProfileTutorActivity"/>
+
     </application>
 
 </manifest>

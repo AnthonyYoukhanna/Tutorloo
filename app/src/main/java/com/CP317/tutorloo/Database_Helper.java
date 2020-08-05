@@ -119,9 +119,44 @@ public class Database_Helper extends SQLiteOpenHelper {
         return student;
     }
 
-    public Tutor getTutor(Tutor tutor){
+    public Tutor getTutor(String email, String password){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Tutor tutor = new Tutor();
+        String query = "Select * from tutor where Email=? and Encrypt_Pass=?";
+        //Log.e("Query", query);
+        Cursor cursor = db.rawQuery(query, new String[]{email, password});
+        int index;
+
+        while(cursor.moveToNext()) {
+            index = cursor.getColumnIndexOrThrow("First_Name");
+            tutor.setFirstName(cursor.getString(index));
+            //Log.e("First Name", cursor.getString(index));
+
+            index = cursor.getColumnIndexOrThrow("Last_Name");
+            tutor.setLastName(cursor.getString(index));
+            //Log.e("Last Name", cursor.getString(index));
+
+            index = cursor.getColumnIndexOrThrow("Biography");
+            tutor.setBiography(cursor.getString(index));
+
+            index = cursor.getColumnIndexOrThrow("Year_Of_Study");
+            tutor.setYear_of_study(cursor.getString(index));
+
+            index = cursor.getColumnIndexOrThrow("Hourly_Fee");
+            tutor.setHourlyRate(cursor.getString(index));
+
+            index = cursor.getColumnIndexOrThrow("Course");
+            tutor.setCourses(cursor.getString(index));
+
+            index = cursor.getColumnIndexOrThrow("Program");
+            tutor.setProgram(cursor.getString(index));
+            //Log.e("DOB", cursor.getString(index));
+        }
+        tutor.setEmail(email);
+
         return tutor;
     }
+
     //checking if user exists
     public boolean checkStudent(String email, String password) {
         SQLiteDatabase db = this.getReadableDatabase();

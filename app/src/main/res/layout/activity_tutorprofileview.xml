@@ -70,7 +70,7 @@
                 app:layout_constraintVertical_bias="0.006"
                 app:srcCompat="@drawable/yellow_circle" />
 
-            <EditText
+            <TextView
                 android:id="@+id/tutor_name"
                 android:layout_width="171dp"
                 android:layout_height="29dp"
@@ -85,7 +85,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/ratingBar"
                 app:layout_constraintVertical_bias="1.0" />
 
-            <EditText
+            <TextView
                 android:id="@+id/tutor_year"
                 android:layout_width="107dp"
                 android:layout_height="28dp"
@@ -99,7 +99,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0" />
 
-            <EditText
+            <TextView
                 android:id="@+id/tutor_program"
                 android:layout_width="204dp"
                 android:layout_height="30dp"
@@ -125,7 +125,7 @@
                 app:layout_constraintTop_toTopOf="@+id/yellow_circle"
                 app:layout_constraintVertical_bias="0.99" />
 
-            <EditText
+            <TextView
                 android:id="@+id/white_backer_bio"
                 android:layout_width="335dp"
                 android:layout_height="127dp"
@@ -137,7 +137,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/white_backer"
                 app:layout_constraintVertical_bias="0.023" />
 
-            <EditText
+            <TextView
                 android:id="@+id/white_backer_hourlyrate"
                 android:layout_width="335dp"
                 android:layout_height="71dp"
@@ -149,7 +149,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/white_backer_bio"
                 app:layout_constraintVertical_bias="0.028" />
 
-            <EditText
+            <TextView
                 android:id="@+id/white_backer_courses"
                 android:layout_width="335dp"
                 android:layout_height="159dp"

@@ -26,6 +26,8 @@ public class StudentProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_studentprofileview);
+
+
         db = new Database_Helper(this);
         mEditProfile = (Button) findViewById(R.id.Edit);
         mPrevious = (ImageButton) findViewById(R.id.studentPrevious);
