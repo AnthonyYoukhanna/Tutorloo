@@ -36,7 +36,7 @@ public class TutorProfileActivity extends AppCompatActivity {
         mProg = (TextView) findViewById(R.id.tutor_program);
         mYear = (TextView) findViewById(R.id.tutor_year);
         mName = (TextView) findViewById(R.id.tutor_name);
-        //mEmail = (EditText) findViewById(R.id.email);
+        mEmail = (TextView) findViewById(R.id.tutor_email);
 
 
         db = new Database_Helper(this);
@@ -48,7 +48,7 @@ public class TutorProfileActivity extends AppCompatActivity {
         Tutor tutor = db.getTutor(email, password);
 
 
-        //mEmail.setText(tutor.getEmail());
+        mEmail.setText(tutor.getEmail());
         mBio.setText(tutor.getBiography());
         mName.setText(tutor.getfirstName() + " " + tutor.getlastName());
         mCourse.setText(tutor.getCourse());
