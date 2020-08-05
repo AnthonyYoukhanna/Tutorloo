@@ -94,6 +94,7 @@ public class Database_Helper extends SQLiteOpenHelper {
     }
 
     public Student getStudent(String email, String password){
+        Log.e("MyEmail",email);
         SQLiteDatabase db = this.getReadableDatabase();
         Student student = new Student();
         String query = "Select * from Student where Email=? and Encrypt_Pass=?";
@@ -137,9 +138,13 @@ public class Database_Helper extends SQLiteOpenHelper {
 
     //checking if tutor exists
     public boolean checkTutor(String email, String password) {
+
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("Select * from tutor where Email=? and Encrypt_Pass=?", new String[]{email, password});
+        Cursor cursor = null;
+        cursor = db.rawQuery("Select First_Name from tutor where Email=? and Encrypt_Pass=?", new String[]{email, password});
         int count = cursor.getCount();
+
+        //cursor = db.rawQuery("Select Tutor_id from tutor where First_Name=?", new String[]{name});
 
         boolean exists;
 
@@ -241,7 +246,7 @@ public class Database_Helper extends SQLiteOpenHelper {
 
         int length = tutorIDs.length;
 
-        String query = "Select First_Name, Last_Name, Program from Tutor";
+        String query = "Select First_Name, Last_Name, Program, Email from Tutor";
 
         String theLength = Integer.toString(length);
 

@@ -49,7 +49,7 @@
             <ImageView
                 android:id="@+id/white_backer"
                 android:layout_width="337dp"
-                android:layout_height="300dp"
+                android:layout_height="325dp"
                 android:background="@drawable/white_rectangle_bar"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -72,18 +72,18 @@
 
             <EditText
                 android:id="@+id/tutor_name"
-                android:layout_width="171dp"
-                android:layout_height="29dp"
+                android:layout_width="116dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="56dp"
                 android:layout_marginBottom="24dp"
                 android:text="Name"
                 android:textSize="9dp"
                 app:layout_constraintBottom_toBottomOf="@+id/white_backer"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.202"
+                app:layout_constraintHorizontal_bias="0.171"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/ratingBar"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintVertical_bias="0.0" />
 
             <EditText
                 android:id="@+id/tutor_year"
@@ -112,6 +112,20 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/ratingBar"
                 app:layout_constraintVertical_bias="0.0" />
+
+            <EditText
+                android:id="@+id/tutor_email"
+                android:layout_width="166dp"
+                android:layout_height="33dp"
+                android:layout_marginTop="9dp"
+                android:text="Program"
+                android:textSize="9dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.788"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ratingBar"
+                app:layout_constraintVertical_bias="0.052" />
 
             <RatingBar
                 android:id="@+id/ratingBar"

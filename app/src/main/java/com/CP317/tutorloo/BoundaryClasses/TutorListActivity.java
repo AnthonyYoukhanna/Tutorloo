@@ -152,6 +152,10 @@ public class TutorListActivity extends AppCompatActivity implements PopupMenu.On
             index = cursor.getColumnIndexOrThrow("Program");
             buttonArray[i].setText( buttonArray[i].getText() +" "+ cursor.getString(index));   //Program
 
+            index= cursor.getColumnIndexOrThrow("Email");
+            buttonArray[i].setText(buttonArray[i].getText() +" "+cursor.getString(index));
+
+
             buttonArray[i].setTextSize(24);
             i++;
             //mField1.setText(mField1.getText() + cursor.getColumnIndex("Last_Name");

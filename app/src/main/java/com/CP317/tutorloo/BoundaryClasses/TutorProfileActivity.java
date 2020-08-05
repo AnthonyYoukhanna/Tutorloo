@@ -27,7 +27,6 @@ public class TutorProfileActivity extends AppCompatActivity {
     private EditText mRate;
     private EditText mCourses;
 
-
     protected  void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutorprofileview);
@@ -60,7 +59,6 @@ public class TutorProfileActivity extends AppCompatActivity {
        // displayProfile();            //Might not work since we are using another db object
 
     }
-
 
     public void displayProfile()
     {
