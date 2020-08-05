@@ -169,15 +169,16 @@ public class Database_Helper extends SQLiteOpenHelper {
             cursor = db.rawQuery("Select Tutor_id from tutor where Program=?", new String[]{program});
         }
 
-        //IF WE ARE ONLY SEARCHING BY TUTOR NAME & COURSE
+        /*
+        //IF WE ARE ONLY SEARCHING BY TUTOR NAME & COURSE //CRASHES WITH ARIA AND CP386
         else if (name != null && course != null && program==null)
         {
-            cursor = db.rawQuery("Select Tutor_id from tutor where Name=? and Course=?", new String[]{name, course});
+            cursor = db.rawQuery("Select Tutor_id from tutor where First_Name=? and Course=?", new String[]{name, course});
         }
 
         //IF WE ARE ONLY SEARCHING BY TUTOR NAME & PROGRAM
         else if (name != null && course == null && program != null) {
-            cursor = db.rawQuery("Select Tutor_id from tutor where Name=? and Program=?", new String[]{name, program});
+            cursor = db.rawQuery("Select Tutor_id from tutor where First_Name=? and Program=?", new String[]{name, program});
         }
 
         //IF WE ARE ONLY SEARCHING BY COURSE AND PROGRAM
@@ -187,8 +188,8 @@ public class Database_Helper extends SQLiteOpenHelper {
 
         //IF WE ARE ONLY SEARCHING BY ALL CRITERIA
         else if (name != null && course != null && program != null) {
-            cursor = db.rawQuery("Select Tutor_id from Tutor where Name= ? and Course=? and Program=?", new String[]{name, course, program});
-        }
+            cursor = db.rawQuery("Select Tutor_id from Tutor where First_Name= ? and Course=? and Program=?", new String[]{name, course, program});
+        }*/
 
         //iterate through cursor and put all results into the tutorIDs array
         int i=0;
@@ -260,6 +261,21 @@ public class Database_Helper extends SQLiteOpenHelper {
 
         return cursor;
 
+    }
+
+    //Return the cursor with the associated profile
+    public Cursor getTutorProfileButton1(){
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = null;
+
+        String tutorID = String.valueOf("1");
+        
+        cursor = db.rawQuery("Select Last_Name, First_Name, Date_Of_Birth, Email, Biography, " +
+                "Year_Of_Student, Hourly_Fee, Rating, Course, Program " +
+                "from tutor where Tutor_Id=?", new String[]{tutorID});
+        return cursor;
     }
 
 

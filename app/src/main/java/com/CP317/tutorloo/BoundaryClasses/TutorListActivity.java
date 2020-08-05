@@ -30,13 +30,20 @@ public class TutorListActivity extends AppCompatActivity implements PopupMenu.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutorlistview);
 
-        //Goes back to the previous view
+        //Set variables
+        db = new Database_Helper(this);
+        mField1 = (TextView) findViewById(R.id.Field1);
+        b1 = (Button) findViewById(R.id.b1);
+        b2 = (Button) findViewById(R.id.b2);
+        b3 = (Button) findViewById(R.id.b3);
         msearch_again = (Button) findViewById(R.id.search_again);
 
         msearch_again.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 //Reset the text in the buttons
-
+                b1.setText("");
+                b2.setText("");
+                b3.setText("");
 
                 Intent intent = new Intent(TutorListActivity.this, StudentActivity.class);
                 startActivity(intent);
@@ -44,14 +51,40 @@ public class TutorListActivity extends AppCompatActivity implements PopupMenu.On
             }
         });
 
-        //Set variables
-        db = new Database_Helper(this);
-        mField1 = (TextView) findViewById(R.id.Field1);
-        b1 = (Button) findViewById(R.id.b1);
-        b2 = (Button) findViewById(R.id.b2);
-        b3 = (Button) findViewById(R.id.b3);
-
         getTutorInfo();
+
+        //If the tutor from the first button is clicked
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(TutorListActivity.this, TutorProfileActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //If the tutor from the first button is clicked
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(TutorListActivity.this, TutorProfileActivity.class);
+                startActivity(intent);
+                return;
+            }
+        });
+
+        //If the tutor from the first button is clicked
+        b3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(TutorListActivity.this, TutorProfileActivity.class);
+                startActivity(intent);
+                return;
+            }
+        });
+
+
     }
 
     public void showPopup(View v) {
@@ -124,12 +157,9 @@ public class TutorListActivity extends AppCompatActivity implements PopupMenu.On
             //mField1.setText(mField1.getText() + cursor.getColumnIndex("Last_Name");
             //Buttons will connect to profile
         }
-
-
     }
 
     //Need a way to grab the id's so that the onclick method takes the id of the corresponding box
     //And then we query the database again and the tutorprofileview can be shown.
-
 
 }

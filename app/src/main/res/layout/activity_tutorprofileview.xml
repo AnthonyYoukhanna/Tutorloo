@@ -125,7 +125,7 @@
                 app:layout_constraintTop_toTopOf="@+id/yellow_circle"
                 app:layout_constraintVertical_bias="0.99" />
 
-            <ImageView
+            <EditText
                 android:id="@+id/white_backer_bio"
                 android:layout_width="335dp"
                 android:layout_height="127dp"
@@ -137,7 +137,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/white_backer"
                 app:layout_constraintVertical_bias="0.023" />
 
-            <ImageView
+            <EditText
                 android:id="@+id/white_backer_hourlyrate"
                 android:layout_width="335dp"
                 android:layout_height="71dp"
@@ -149,7 +149,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/white_backer_bio"
                 app:layout_constraintVertical_bias="0.028" />
 
-            <ImageView
+            <EditText
                 android:id="@+id/white_backer_courses"
                 android:layout_width="335dp"
                 android:layout_height="159dp"

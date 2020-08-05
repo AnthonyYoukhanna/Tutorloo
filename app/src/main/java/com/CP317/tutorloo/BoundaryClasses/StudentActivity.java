@@ -156,7 +156,7 @@ public class StudentActivity extends AppCompatActivity implements PopupMenu.OnMe
         if(!course.isEmpty())
             criteriaArray[1]= course;
         if(!program.isEmpty())
-            criteriaArray[2]= course;
+            criteriaArray[2]= program;
 
         //Get the database in here and send the criteria by doing db.findTutors(criteriaArray)
         tutorID= db.findTutors(criteriaArray);
