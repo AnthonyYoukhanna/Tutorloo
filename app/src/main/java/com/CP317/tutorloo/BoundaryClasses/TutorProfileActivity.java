@@ -20,6 +20,7 @@ public class TutorProfileActivity extends AppCompatActivity {
     private TextView mBio, mCourse, mHour, mProg, mYear, mName, mEmail;
     Database_Helper db;
 
+
     protected  void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutorprofileview);
@@ -74,6 +75,7 @@ public class TutorProfileActivity extends AppCompatActivity {
        // displayProfile();            //Might not work since we are using another db object
 
     }
+
 
 
 //    public void displayProfile()

@@ -25,6 +25,7 @@ public class StudentProfileActivity extends AppCompatActivity {
     Database_Helper db;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        db = new Database_Helper(this);
         setContentView(R.layout.activity_studentprofileview);
 
 
