@@ -57,7 +57,7 @@ public class TutorProfileActivity extends AppCompatActivity {
         }
 
         //call display profile
-        displayProfile();            //Might not work since we are using another db object
+       // displayProfile();            //Might not work since we are using another db object
 
     }
 
