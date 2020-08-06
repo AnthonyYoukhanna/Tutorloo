@@ -141,6 +141,7 @@
 
             <TextView
                 android:id="@+id/white_backer_bio"
+                android:gravity="center|center_vertical"
                 android:layout_width="335dp"
                 android:layout_height="127dp"
                 android:background="@drawable/white_rectangle_bar"
@@ -153,6 +154,7 @@
 
             <TextView
                 android:id="@+id/white_backer_hourlyrate"
+                android:gravity="center|center_vertical"
                 android:layout_width="335dp"
                 android:layout_height="71dp"
                 android:background="@drawable/white_rectangle_bar"
@@ -166,6 +168,7 @@
             <TextView
                 android:id="@+id/white_backer_courses"
                 android:layout_width="335dp"
+                android:gravity="center|center_vertical"
                 android:layout_height="159dp"
                 android:layout_marginTop="28dp"
                 android:background="@drawable/white_rectangle_bar"
@@ -173,26 +176,16 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/white_backer_hourlyrate" />
 
-            <ImageView
-                android:id="@+id/white_backer_ratings"
-                android:layout_width="335dp"
-                android:layout_height="159dp"
-                android:layout_marginTop="28dp"
-                android:background="@drawable/white_rectangle_bar"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/white_backer_courses" />
-
             <Button
                 android:id="@+id/edit_profile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="146dp"
-                android:layout_marginLeft="146dp"
-                android:layout_marginTop="1022dp"
+                android:layout_marginStart="148dp"
+                android:layout_marginLeft="148dp"
+                android:layout_marginTop="848dp"
                 android:background="#330072"
-                android:textColor="#FFFFFF"
                 android:text="Edit Profile"
+                android:textColor="#FFFFFF"
                 android:visibility="invisible"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

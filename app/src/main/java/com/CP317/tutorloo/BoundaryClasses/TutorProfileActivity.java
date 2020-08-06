@@ -49,12 +49,19 @@ public class TutorProfileActivity extends AppCompatActivity {
 
 
         mEmail.setText(tutor.getEmail());
-        mBio.setText(tutor.getBiography());
+        mEmail.setTextSize(12);
+        mBio.setText("Bio: \n"+tutor.getBiography());
+        mBio.setTextSize(25);
         mName.setText(tutor.getfirstName() + " " + tutor.getlastName());
-        mCourse.setText(tutor.getCourse());
-        mHour.setText(tutor.getHourlyRate());
-        mProg.setText(tutor.getYear_of_study());
-        mYear.setText(tutor.getYear_of_study());
+        mName.setTextSize(20);
+        mCourse.setText("Courses Taken: \n"+tutor.getCourse());
+        mCourse.setTextSize(25);
+        mHour.setText("Hourly Rate: "+tutor.getHourlyRate());
+        mHour.setTextSize(25);
+        mProg.setText(tutor.getProgram());
+        mProg.setTextSize(12);
+        mYear.setText("Year of Study: "+tutor.getYear_of_study());
+        mYear.setTextSize(12);
 
 
 
